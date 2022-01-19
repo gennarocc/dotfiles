@@ -6,10 +6,29 @@
     ~/.Xresources: Xresources
     ~/.xinitrc: xinitrc
     ~/.config/awesome:
-        path: config/awesome/
-        create: true
+      path: config/awesome/
+      create: true
     ~/.config/redshift:
-        path: config/redshift/
-        create: true
+      path: config/redshift/
+      create: true
+    ~/.config/picom:
+      path: config/picom/
+      create: true
+    ~/.config/nvim/lua/custom:
+      path: config/nvim/
+      create: false
+    ~/.config/ranger:
+      path: config/ranger/
+      create: true
+    ~/.config/mpd:
+      path: config/mpd/
+      create: true
+    ~/.config/ncmpcpp:
+      path: config/ncmpcpp/
+      create: true
+    ~/.config/retroarch/config:
+      path: config/retroarch/config/
+      create: false
 
-
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
