@@ -1,0 +1,30 @@
+def_key "+"
+    show_clock
+def_key "="
+    volume_up
+
+def_key "j"
+    scroll_down
+def_key "k"
+    scroll_up
+
+def_key "h"
+    jump_to_parent_directory
+def_key "l"
+    enter_directory
+
+def_key "H"
+    next_column
+def_key "L"
+    previous_column
+
+def_key "n"
+    next_found_item
+def_key "N"
+    previous_found_item
+
+# not used but bound
+def_key "K"
+    move_selected_items_up
+def_key "J"
+    move_selected_items_down

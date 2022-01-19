@@ -1,0 +1,82 @@
+##### connection settings #####
+#
+mpd_host = 0.0.0.0
+mpd_port = 6600
+mpd_music_dir = /home/gcc/Music
+
+##### music visualizer #####
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "mpd_fifo"
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "●▮"
+# visualizer_look = "▉▋"
+visualizer_color = green, yellow, red
+
+# Playlist
+playlist_show_remaining_time = yes
+playlist_shorten_total_times = yes
+playlist_separate_albums = no
+# song_list_format = "{{$2%a$0 $3-$0 $5%b$0 $3- $7%t$0}|{%f}}{$R$2%l$0}"
+song_list_format = "$6{%a »$4 %t$/r$R}|{%f}"
+current_item_prefix = "$3──────────── $0"
+current_item_suffix = "$3 ────────────$0"
+playlist_display_mode = "classic"
+titles_visibility = "yes"
+header_visibility = "no"
+statusbar_visibility = "yes"
+fetch_lyrics_for_current_song_in_background = "no"
+
+# How the browser looks
+browser_display_mode = classic
+search_engine_display_mode = classic
+playlist_editor_display_mode = classic
+
+# Centering
+autocenter_mode = yes
+centered_cursor = yes
+
+# Don't delete items
+allow_for_physical_item_deletion = yes
+
+# Startup screens
+startup_screen = "browser"
+
+# Title
+clock_display_seconds = yes
+display_volume_level = yes
+display_bitrate = no
+display_remaining_time = yes
+enable_window_title = yes
+
+# Media library settings
+ignore_leading_the = no
+media_library_sort_by_mtime = no
+media_library_primary_tag = album_artist
+default_place_to_search_in = database
+cyclic_scrolling = yes
+mpd_crossfade_time = "3"
+playlist_disable_highlight_delay = 0
+now_playing_suffix = "$/b$/r"
+
+# Editor
+external_editor = nvim
+use_console_editor = yes
+
+# Looks
+statusbar_color = "green"
+progressbar_color = "red"
+progressbar_elapsed_color = "green"
+alternative_ui_separator_color = "black"
+color1 = "blue"
+color2 = "green"
+main_window_color = "green"
+statusbar_time_color = "blue"
+player_state_color = "blue"
+window_border_color = "black"
+active_window_border = "black"
+progressbar_look =  "─╼"
+user_interface = alternative
+song_status_format = "$2%a$0 $3-$0 $5%b$0 $3- $7%t$0"
+message_delay_time = 1
+execute_on_song_change = notify-send -a mpd "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)"
