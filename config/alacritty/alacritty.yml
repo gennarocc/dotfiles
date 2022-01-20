@@ -13,27 +13,24 @@ scrolling:
 
 font:
   normal:
-    family: Hack Nerd Font
+    family: TerminessTTF Nerd Font
     style: Medium
   bold:
-    family: Hack Nerd Font
+    family: TerminessTTF Nerd Font
     style: Bold
   italic:
-    family: Hack Nerd Font
+    family: TerminessTTF Nerd Font
     style: Italic
   bold_italic:
-    family: Hack Nerd Font
+    family: ShureTechMono Nerd Font
     style: Bold Italic
-  size: 14
+  size: 16
 
 background_opacity: .97 
 
 cursor:
   style:
-    shape: Block
-    blinking: On
-  vi_mode_style: Block
-  unfocused_hollow: true
+    shape: Underline
 
 live_config_reload: true
 
