@@ -33,6 +33,7 @@
       path: config/retroarch/config/
       create: false
     ~/.config/mumble-cert.p12: mumble-cert.p12
+    ~/.config/zsh: config/zsh/
 
 - shell:
     - [cd ~/.config/awesome && git submodule update --init --recursive, Installing AwesomeWM submodules]
