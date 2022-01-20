@@ -2,3 +2,9 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "config/zsh/plugins/geometry"]
+	path = config/zsh/plugins/geometry
+	url = git@github.com:geometry-zsh/geometry.git
+[submodule "config/zsh/plugins/zsh-autosuggestions"]
+	path = config/zsh/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
