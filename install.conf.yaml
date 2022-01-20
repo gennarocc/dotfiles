@@ -1,5 +1,9 @@
 - clean: ['~']
 
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [cd config/ranger/plugins/ranger-gitplug && make install]
+
 - link:
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
@@ -9,7 +13,7 @@
       path: config/alacritty/
       create: true
     ~/.config/awesome:
-      path: config/awesome/
+      path: config/awesomewm-config/
       create: true
     ~/.config/redshift:
       path: config/redshift/
@@ -29,13 +33,5 @@
     ~/.config/ncmpcpp:
       path: config/ncmpcpp/
       create: true
-    ~/.config/retroarch/config:
-      path: config/retroarch/config/
-      create: false
-    ~/.config/mumble-cert.p12: mumble-cert.p12
+    # ~/.config/mumble-cert.p12: mumble-cert.p12
     ~/.config/zsh: config/zsh/
-
-- shell:
-    - [cd ~/.config/awesome && git submodule update --init --recursive, Installing AwesomeWM submodules]
-    - [ mkdir ~/Workspace, Setup Workspace folder ]
-

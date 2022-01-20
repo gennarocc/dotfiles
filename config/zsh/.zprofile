@@ -29,10 +29,10 @@ export LESS='-g -i -M -R -S -w -X -z-4'
 export PF_INFO="ascii title os kernel wm pkgs memory shell"
 export FZF_DEFAULT_OPTS='--color fg:#ebdbb2,bg:#1d2021,hl:#d79921,fg+:#689d6a,bg+:#282828,hl+:#fabd2f,info:#83a598,prompt:#bdae93,spinner:#b16286,pointer:#689d6a,marker:#fe8019,header:#665c54 --border'
 #geometry-zsh config
-sep() {echo "➤"}
+# sep() {echo "➤"}
 GEOMETRY_STATUS_SYMBOL="❃"
 GEOMETRY_STATUS_SYMBOL_ERROR="❃"
-GEOMETRY_PROMPT+=(sep)
+# GEOMETRY_PROMPT+=(sep)
 GEOMETRY_STATUS_COLOR="magenta"
 GEOMETRY_STATUS_COLOR_ERROR="red"
 #LS Colors
@@ -40,8 +40,8 @@ alias ls='ls -F --color=auto'
 alias ll='ls -lh --color=auto'
 alias lt='ls --human-readable --size -1 -S --classify --color=auto'
 #Config Files
+alias dot="cd ~/.dotfiles"
 alias zrc="nvim ~/.zprofile"
-alias zp="nvim ~/.zpretzorc"
 alias vrc="cd ~/.config/nvim && nvim ~/.config/nvim/lua/custom/chadrc.lua"
 alias arc="cd ~/.config/awesome && nvim ~/.config/awesome/rc.lua"
 # Quick Shortcuts

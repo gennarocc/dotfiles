@@ -20,3 +20,6 @@
 [submodule "config/ranger/plugins/ranger-fzf-marks"]
 	path = config/ranger/plugins/ranger-fzf-marks
 	url = git@github.com:laggardkernel/ranger-fzf-marks.git
+[submodule "config/awesomewm-config"]
+	path = config/awesomewm-config
+	url = git@github.com:gennarocc/awesomewm-config.git
