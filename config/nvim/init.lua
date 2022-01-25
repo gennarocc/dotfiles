@@ -1,7 +1,7 @@
 -- This is where you custom modules and plugins goes.
 -- See the wiki for a guide on how to extend NvChad
 
-local hooks = require "core.hooks"
+local customPlugins = require "core.customPlugins"
 
 -- NOTE: To use this, make a copy with `cp example_init.lua init.lua`
 
@@ -21,7 +21,7 @@ local hooks = require "core.hooks"
 --    .... many more mappings ....
 -- end)
 
-hooks.add("install_plugins", function(use)
+customPlugins.add(function(use)
    use {
       "karb94/neoscroll.nvim",
       opt = true,
