@@ -3,9 +3,10 @@
 #env:
 window:
   padding:
-    x: 36
-    y: 30
+    x: 26
+    y: 20
   dynamic_padding: true
+  opacity: .97
 
 scrolling:
   history: 5000
@@ -25,8 +26,6 @@ font:
     family: ShureTechMono Nerd Font
     style: Bold Italic
   size: 16
-
-background_opacity: .97 
 
 cursor:
   style:
