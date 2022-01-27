@@ -2,11 +2,18 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth, Clone NvChad ]
     - [cd config/ranger/plugins/ranger-gitplug && make install]
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.zshrc: zshrc
+    ~/.zprezto: prezto/
+    ~/.zshrc: config/zsh/zshrc
+    ~/.zprofile: config/zsh/zprofile
+    ~/.zpreztorc: config/zsh/zpreztorc
+    ~/.zshenv: config/zsh/zshenv
+    ~/.zlogin: config/zsh/zlogin
+    ~/.zlogout: config/zsh/zlogout
     ~/.Xresources: Xresources
     ~/.xinitrc: xinitrc
     ~/.config/alacritty:
@@ -33,5 +40,4 @@
     ~/.config/ncmpcpp:
       path: config/ncmpcpp/
       create: true
-    # ~/.config/mumble-cert.p12: mumble-cert.p12
     ~/.config/zsh: config/zsh/

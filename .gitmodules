@@ -23,3 +23,9 @@
 [submodule "config/awesomewm-config"]
 	path = config/awesomewm-config
 	url = git@github.com:gennarocc/awesomewm-config.git
+[submodule "config/zsh/plugins/zsh-interactive-cd"]
+	path = config/zsh/plugins/zsh-interactive-cd
+	url = git@github.com:changyuheng/zsh-interactive-cd.git
+[submodule "prezto"]
+	path = prezto
+	url = git@github.com:sorin-ionescu/prezto.git
