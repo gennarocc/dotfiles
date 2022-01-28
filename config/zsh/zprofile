@@ -64,7 +64,7 @@ alias zsrc="source ~/.zshrc"
 # Git
 alias master="git checkout master"
 alias autosquash="git rebase -i master --autosquash"
-branch() {
+function branch() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
@@ -72,7 +72,7 @@ branch() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-commits() {
+function commits() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
@@ -86,6 +86,57 @@ function fixup () {
   git ll -n 20 | fzf | cut -f 1 | xargs git commit --no-verify --fixup
 }
 
+# Homebrew
+function bi() {
+  local inst=`$(brew search “$@" | fzf -m)`
+  if [[ $inst ]]; then
+    for prog in $(echo $inst);
+    do; brew install $prog; done;
+  fi
+}
+
+function bu() {
+  local uninst=$(brew leaves | fzf -m)
+
+  if [[ $uninst ]]; then
+    for prog in $(echo $uninst);
+    do; brew uninstall $prog; done;
+  fi
+}
+
+function bic() {
+    local token
+    token=$(brew search --casks "$1" | fzf-tmux --query="$1" +m --preview 'brew info {}')
+                    
+    if [ "x$token" != "x" ]                                                                
+    then             
+        echo "(I)nstall or open the (h)omepage of $token"
+        read input                             
+        if [ $input = "i" ] || [ $input = "I" ]; then    
+            brew install --cask $token                   
+        fi                                                                                    
+        if [ $input = "h" ] || [ $input = "H" ]; then                                         
+            brew home $token                     
+        fi                                           
+    fi                             
+}    
+
+function buc() {                                                                     
+    local token                                                                   
+    token=$(brew list --casks | fzf-tmux --query="$1" +m --preview 'brew info {}')
+                                                                                  
+    if [ "x$token" != "x" ]                                                       
+    then                                                                          
+        echo "(U)ninstall or open the (h)omepae of $token"                        
+        read input                                                                
+        if [ $input = "u" ] || [ $input = "U" ]; then                             
+            brew uninstall --cask $token                                          
+        fi                                                                        
+        if [ $input = "h" ] || [ $token = "h" ]; then                             
+            brew home $token                                                      
+        fi                                                                        
+    fi                                                                            
+}   
 # Paru 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   alias paruconf="paru -Pg"

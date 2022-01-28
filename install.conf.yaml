@@ -3,7 +3,6 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth, Clone NvChad ]
-    - [cd config/ranger/plugins/ranger-gitplug && make install]
 
 - link:
     ~/.gitconfig: gitconfig
