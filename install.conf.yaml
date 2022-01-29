@@ -1,5 +1,10 @@
 - clean: ['~']
 
+- defaults:
+    link:
+      create: true
+      relink: true
+
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
 
@@ -14,31 +19,15 @@
     ~/.zlogout: config/zsh/zlogout
     ~/.Xresources: Xresources
     ~/.xinitrc: xinitrc
-    ~/.config/alacritty:
-      path: config/alacritty/
-      create: true
-    ~/.config/awesome:
-      path: config/awesomewm-config/
-      create: true
-    ~/.config/redshift:
-      path: config/redshift/
-      create: true
-    ~/.config/picom:
-      path: config/picom/
-      create: true
-    ~/.config/nvim:
-      path: submodules/NvChad/
-      create: true
-    ~/.config/nvim/lua/custom:
+    ~/.config/alacritty: config/alacritty/
+    ~/.config/awesome: config/awesomewm-config/
+    ~/.config/redshift: config/redshift/
+    ~/.config/picom: config/picom/
+    ~/.config/nvim: submodules/NvChad/
+    ~/.config/nvim/lua/custom: 
       path: config/nvim/
       create: false
-    ~/.config/ranger:
-      path: config/ranger/
-      create: true
-    ~/.config/mpd:
-      path: config/mpd/
-      create: true
-    ~/.config/ncmpcpp:
-      path: config/ncmpcpp/
-      create: true
+    ~/.config/ranger: config/ranger/
+    ~/.config/mpd: config/mpd/
+    ~/.config/ncmpcpp: config/ncmpcpp/
     ~/.config/zsh: config/zsh/
