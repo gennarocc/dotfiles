@@ -26,6 +26,9 @@
 [submodule "config/zsh/plugins/zsh-interactive-cd"]
 	path = config/zsh/plugins/zsh-interactive-cd
 	url = git@github.com:changyuheng/zsh-interactive-cd.git
-[submodule "prezto"]
-	path = prezto
+[submodule "submodules/NvChad"]
+	path = submodules/NvChad
+	url = https://github.com/NvChad/NvChad
+[submodule "submodules/prezto"]
+	path = submodules/prezto
 	url = git@github.com:sorin-ionescu/prezto.git

@@ -2,11 +2,10 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth, Clone NvChad ]
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.zprezto: prezto/
+    ~/.zprezto: submodules/prezto/
     ~/.zshrc: config/zsh/zshrc
     ~/.zprofile: config/zsh/zprofile
     ~/.zpreztorc: config/zsh/zpreztorc
@@ -26,6 +25,9 @@
       create: true
     ~/.config/picom:
       path: config/picom/
+      create: true
+    ~/.config/nvim:
+      path: submodules/NvChad/
       create: true
     ~/.config/nvim/lua/custom:
       path: config/nvim/
