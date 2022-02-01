@@ -35,18 +35,8 @@ GEOMETRY_SEPERATOR="➤"
 GEOMETRY_PROMPT=(geometry_status geometry_path sep)
 GEOMETRY_STATUS_COLOR="magenta"
 GEOMETRY_STATUS_COLOR_ERROR="red"
-function set_symbol() {
-  local who_am_i
-  who_am_i=$(cat /proc/device-tree/model)
-  if [-z "$who_am_i"];
-  then
-    GEOMETRY_STATUS_SYMBOL=""
-    GEOMETRY_STATUS_SYMBOL_ERROR=""
-  else
-    GEOMETRY_STATUS_SYMBOL="❃"
-    GEOMETRY_STATUS_SYMBOL_ERROR="❃"
-}
-set_symbol()
+GEOMETRY_STATUS_SYMBOL="❃"
+GEOMETRY_STATUS_SYMBOL_ERROR="❃"
 #LS Colors
 alias ls='ls -F --color=auto'
 alias ll='ls -lh --color=auto'
