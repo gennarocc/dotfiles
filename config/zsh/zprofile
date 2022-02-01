@@ -34,12 +34,10 @@ bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 #Prompt config
 sep() {echo "➤"}
-ptime() {date | awk '{print $4}'}
 GEOMETRY_SEPERATOR="➤"
 GEOMETRY_STATUS_SYMBOL="❃"
 GEOMETRY_STATUS_SYMBOL_ERROR="❃"
 GEOMETRY_PROMPT=(geometry_status geometry_path sep)
-#GEOMETRY_RPROMPT=(ptime)
 GEOMETRY_STATUS_COLOR="magenta"
 GEOMETRY_STATUS_COLOR_ERROR="red"
 #LS Colors
@@ -88,7 +86,7 @@ function fixup () {
 
 # Homebrew
 function bi() {
-  local inst=`$(brew search “$@" | fzf -m)`
+  local inst=`$(brew search "$@" | fzf -m)`
   if [[ $inst ]]; then
     for prog in $(echo $inst);
     do; brew install $prog; done;

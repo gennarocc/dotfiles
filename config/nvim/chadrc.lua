@@ -51,7 +51,7 @@ M.plugins = {
    --              use "(custom.configs).my_func()" to call a function
    --              use "custom.blankline" to call a file
    default_plugin_config_replace = {
-      nvim_treesitter = "custom.plugins.treesitter",
+      -- nvim_treesitter = "custom.plugins.treesitter",
       nvim_tree = "custom.plugins.nvimtree",
       -- nvim_cmp = "custom.plugins.cmp",
    },
