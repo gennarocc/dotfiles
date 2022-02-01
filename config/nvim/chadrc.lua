@@ -4,14 +4,12 @@ local M = {}
 M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 
 --------------------------------------------------------------------
-
 -- To use this file, copy the strucutre of `core/default_config.lua`,
 -- examples of setting relative number & changing theme:
 
 -- M.options = {
 --    relativenumber = true,
 -- }
-
 M.mappings = {
    -- better window movement
    window_nav = {
@@ -36,6 +34,7 @@ M.plugins = {
       colorizer = true,
       orgmode = true,
       neoformat = true,
+      neoscroll = true,
    },
    options = {
       lspconfig = {
@@ -51,9 +50,8 @@ M.plugins = {
    --              use "(custom.configs).my_func()" to call a function
    --              use "custom.blankline" to call a file
    default_plugin_config_replace = {
-      -- nvim_treesitter = "custom.plugins.treesitter",
+      nvim_treesitter = "custom.plugins.treesitter",
       nvim_tree = "custom.plugins.nvimtree",
-      -- nvim_cmp = "custom.plugins.cmp",
    },
 }
 

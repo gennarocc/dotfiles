@@ -25,11 +25,13 @@ export EDITOR='/usr/bin/nvim'
 export VISUAL='/usr/bin/nvim'
 export PAGER='less'
 export LESS='-g -i -M -R -S -w -X -z-4'
-# pfetch config
+# Pfetch config
 export PF_INFO="ascii title os kernel wm pkgs memory shell"
-# fzf config
+# FZF Config
 export FZF_DEFAULT_OPTS='--color fg:#ebdbb2,bg:#1d2021,hl:#d79921,fg+:#689d6a,bg+:#282828,hl+:#fabd2f,info:#83a598,prompt:#bdae93,spinner:#b16286,pointer:#689d6a,marker:#fe8019,header:#665c54 --border'
-#Prompt config
+# Ranger Config
+RANGER_DEVICONS_SEPARATOR="  "
+#Prompt Config
 sep() {echo "➤"}
 GEOMETRY_SEPERATOR="➤"
 GEOMETRY_PROMPT=(geometry_status geometry_path sep)
@@ -43,13 +45,15 @@ alias ll='ls -lh --color=auto'
 alias lt='ls --human-readable --size -1 -S --classify --color=auto'
 #Config Files
 alias dot="cd ~/.dotfiles"
-alias zrc="nvim ~/.dotfiles/config/zsh/.zprofile"
-alias vrc="cd ~/.dotfiles/config/nvim && nvim ~/.dotfiles/config/nvim/lua/custom/chadrc.lua"
-alias arc="cd ~/.dotfiles/config/awesome && nvim ~/.dotfiles/config/awesome/rc.lua"
+alias zrc="nvim ~/.zprofile"
+alias vrc="cd ~/.dotfiles/config/nvim && nvim chadrc.lua"
+alias arc="cd ~/.config/awesome && nvim rc.lua"
 # Quick Shortcuts
 alias s="sudo"
 alias x="clear"
 alias r="ranger"
+alias vim=nvim
+alias nv="nvim"
 alias q="exit"
 alias :q="exit"
 alias :q!="exit"

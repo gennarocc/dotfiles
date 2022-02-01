@@ -8,7 +8,7 @@ M.setup_lsp = function(attach, capabilities)
   local lspconfig = require "lspconfig"
 
   -- lspservers wih default config
-  local servers = { "html", "cssls", "pyright" }
+  local servers = { "html", "cssls", "pyright", "yamlls"}
 
   for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {

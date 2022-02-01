@@ -10,7 +10,7 @@ local sources = {
 
    -- JS html css stuff
    b.formatting.prettierd.with {
-      filetypes = { "html", "json", "markdown", "css", "lua" },
+      filetypes = { "html", "json", "markdown", "css", "lua", "yaml" },
    },
    b.diagnostics.eslint.with {
       command = "eslint_d",

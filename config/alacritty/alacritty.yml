@@ -10,7 +10,6 @@ window:
 
 scrolling:
   history: 5000
-  #multiplier: 3
 
 font:
   normal:
@@ -27,9 +26,6 @@ font:
     style: Bold Italic
   size: 16
 
-cursor:
-  style:
-    shape: Underline
 
 live_config_reload: true
 
@@ -57,3 +53,7 @@ colors:
     magenta: '0xd3869b'
     cyan:    '0x89b482'
     white:   '0xdfbf8e'
+
+cursor:
+  style:
+    shape: Underline
