@@ -35,11 +35,21 @@ bindkey "^[[B" history-beginning-search-forward
 #Prompt config
 sep() {echo "➤"}
 GEOMETRY_SEPERATOR="➤"
-GEOMETRY_STATUS_SYMBOL="❃"
-GEOMETRY_STATUS_SYMBOL_ERROR="❃"
 GEOMETRY_PROMPT=(geometry_status geometry_path sep)
 GEOMETRY_STATUS_COLOR="magenta"
 GEOMETRY_STATUS_COLOR_ERROR="red"
+function set_symbol() {
+  local who_am_i
+  who_am_i=$(cat /proc/device-tree/model)
+  if [-z "$who_am_i"];
+  then
+    GEOMETRY_STATUS_SYMBOL=""
+    GEOMETRY_STATUS_SYMBOL_ERROR=""
+  else
+    GEOMETRY_STATUS_SYMBOL="❃"
+    GEOMETRY_STATUS_SYMBOL_ERROR="❃"
+}
+set_symbol()
 #LS Colors
 alias ls='ls -F --color=auto'
 alias ll='ls -lh --color=auto'
@@ -136,18 +146,14 @@ function buc() {
     fi                                                                            
 }   
 # Paru 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  alias paruconf="paru -Pg"
-  alias upgrade="paru -Syu"
-  alias up="paru -Syu"
-  alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
-  alias in="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
-  alias uninstall="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
-fi
+alias paruconf="paru -Pg"
+alias upgrade="paru -Syu"
+alias up="paru -Syu"
+alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
+alias in="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
+alias uninstall="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
 alias un="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
 alias clean="paru -Rs $(paru -Qqtd)"
-# Brew
-
 # Pi Server
 alias pi="ssh pi@sftp.memeware.us -p 90"
 alias pugshare="sftp -P 90 pug@sftp.memeware.us"
