@@ -11,7 +11,6 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 --    relativenumber = true,
 -- }
 M.mappings = {
-   -- better window movement
    window_nav = {
       moveLeft = "<leader>wh",
       moveRight = "<leader>wl",
