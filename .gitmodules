@@ -23,12 +23,12 @@
 [submodule "config/awesomewm-config"]
 	path = config/awesomewm-config
 	url = git@github.com:gennarocc/awesomewm-config.git
-[submodule "config/zsh/plugins/zsh-interactive-cd"]
-	path = config/zsh/plugins/zsh-interactive-cd
-	url = git@github.com:changyuheng/zsh-interactive-cd.git
 [submodule "submodules/NvChad"]
 	path = submodules/NvChad
 	url = https://github.com/NvChad/NvChad
 [submodule "submodules/prezto"]
 	path = submodules/prezto
 	url = git@github.com:sorin-ionescu/prezto.git
+[submodule "config/zsh/plugins/fzf-tab"]
+	path = config/zsh/plugins/fzf-tab
+	url = git@github.com:Aloxaf/fzf-tab.git
