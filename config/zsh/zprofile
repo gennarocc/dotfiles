@@ -31,7 +31,7 @@ export LESS='-g -i -M -R -S -w -X -z-4'
 export PF_INFO="ascii title os kernel wm pkgs memory shell"
 
 # FZF Config
-export FZF_DEFAULT_OPTS='--color fg:#ebdbb2,bg:#1d2021,hl:#d79921,fg+:#689d6a,bg+:#282828,hl+:#fabd2f,info:#83a598,prompt:#bdae93,spinner:#b16286,pointer:#689d6a,marker:#fe8019,header:#665c54 --border=none'
+export FZF_DEFAULT_OPTS='--preview-window border-sharp --color fg:#ebdbb2,bg:#1d2021,hl:#d79921,fg+:#689d6a,bg+:#282828,hl+:#fabd2f,info:#83a598,prompt:#bdae93,spinner:#b16286,pointer:#689d6a,marker:#fe8019,header:#665c54 '
 
 # Ranger Config
 RANGER_DEVICONS_SEPARATOR="  "
@@ -44,8 +44,8 @@ GEOMETRY_STATUS_COLOR="magenta"
 GEOMETRY_STATUS_COLOR_ERROR="red"
 GEOMETRY_STATUS_SYMBOL="❃"
 GEOMETRY_STATUS_SYMBOL_ERROR="❃"
-#Config Files
 
+#Config Files
 alias dot="cd ~/.dotfiles"
 alias zrc="nvim ~/.zprofile"
 alias vrc="cd ~/.dotfiles/config/nvim && nvim chadrc.lua"
@@ -66,8 +66,9 @@ alias zsrc="source ~/.zshrc"
 
 # Git
 alias master="git checkout master"
+alias fixup="git commit --fixup="
 alias autosquash="git rebase -i master --autosquash"
-function branch() {
+function gb() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
   branch=$(echo "$branches" |
@@ -75,7 +76,7 @@ function branch() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-function commits() {
+function gc() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
@@ -84,9 +85,6 @@ function commits() {
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
                 {}
 FZF-EOF"
-}
-function fixup () {
-  git ll -n 20 | fzf | cut -f 1 | xargs git commit --no-verify --fixup
 }
 
 # Paru 
