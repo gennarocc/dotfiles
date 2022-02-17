@@ -1,4 +1,4 @@
-- clean: ['~']
+- clean: ["~"]
 
 - defaults:
     link:
@@ -11,6 +11,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.zprezto: submodules/prezto/
+    ~/.zprezto/modules/prompt/functions/prompt_gcc_setup: config/zsh/prompt_gcc_setup
     ~/.zshrc: config/zsh/zshrc
     ~/.zprofile: config/zsh/zprofile
     ~/.zpreztorc: config/zsh/zpreztorc
@@ -24,7 +25,7 @@
     ~/.config/redshift: config/redshift/
     ~/.config/picom: config/picom/
     ~/.config/nvim: submodules/NvChad/
-    ~/.config/nvim/lua/custom: 
+    ~/.config/nvim/lua/custom:
       path: config/nvim/
       create: false
     ~/.config/ranger: config/ranger/

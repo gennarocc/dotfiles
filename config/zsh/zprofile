@@ -36,15 +36,6 @@ export FZF_DEFAULT_OPTS='--preview-window border-sharp --color fg:#ebdbb2,bg:#1d
 # Ranger Config
 RANGER_DEVICONS_SEPARATOR="  "
 
-#Prompt Config
-sep() {echo "➤"}
-GEOMETRY_SEPERATOR="➤"
-GEOMETRY_PROMPT=(geometry_status geometry_path sep)
-GEOMETRY_STATUS_COLOR="magenta"
-GEOMETRY_STATUS_COLOR_ERROR="red"
-GEOMETRY_STATUS_SYMBOL="❃"
-GEOMETRY_STATUS_SYMBOL_ERROR="❃"
-
 #Config Files
 alias dot="cd ~/.dotfiles"
 alias zrc="nvim ~/.zprofile"

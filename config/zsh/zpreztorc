@@ -24,7 +24,7 @@ zstyle ':prezto:load' pmodule \
   'prompt' \
 
 # Prompt
-zstyle ':prezto:module:prompt' theme 'minimal'
+zstyle ':prezto:module:prompt' theme 'gcc'
 
 # Set the key mapping style to 'emacs' or 'vi'.
 zstyle ':prezto:module:editor' key-bindings 'vi'
