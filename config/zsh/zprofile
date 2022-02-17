@@ -78,16 +78,6 @@ function gc() {
 FZF-EOF"
 }
 
-# Paru 
-alias paruconf="paru -Pg"
-alias upgrade="paru -Syu"
-alias up="paru -Syu"
-alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
-alias in="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
-alias uninstall="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
-alias un="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
-alias clean="paru -Rs $(paru -Qqtd)"
-
 # Pi Server
 alias pi="ssh pi@sftp.memeware.us -p 90"
 alias pugshare="sftp -P 90 pug@sftp.memeware.us"
