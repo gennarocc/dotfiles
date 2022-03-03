@@ -90,6 +90,7 @@ alias clean="paru -Rs $(paru -Qqtd)"
 
 # Pi Server
 alias pi="ssh pi@sftp.memeware.us -p 90"
+alias pi2="ssh pi@192.168.1.227 -p 90"
 alias pugshare="sftp -P 90 pug@sftp.memeware.us"
 
 # Launch Project Zomboid Server

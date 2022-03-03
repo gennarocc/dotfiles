@@ -20,7 +20,7 @@ return {
     "kristijanhusak/orgmode.nvim",
     after = "nvim-treesitter",
     config = function()
-      require("orgmode").setup({
+      require("orgmode").setup_ts_grammar({
         org_agenda_files = { "~/org/*", "~/my-orgs/**/*" },
         org_default_notes_file = "~/org/refile.org",
       })
@@ -28,5 +28,8 @@ return {
   },
   {
     "ivyl/vim-bling",
+  },
+  {
+    "towolf/vim-helm",
   },
 }
