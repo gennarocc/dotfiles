@@ -54,6 +54,7 @@ alias :q!="exit"
 alias ws="cd ~/workspace"
 alias todo="nvim ~/documents/refile.org"
 alias ip="curl https://echoip.xyz"
+alias ss="~/.local/bin/pipes"
 alias zsrc="source ~/.zshrc"
 
 # Git
