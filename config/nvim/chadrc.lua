@@ -2,7 +2,7 @@
 -- This file is for NvChad options & tools, custom settings are split between here and 'lua/custom/init.lua'
 local M = {}
 local customPlugins = require("custom.plugins")
-
+local pluginConfs = require("custom.plugins.others")
 M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 
 --------------------------------------------------------------------
@@ -53,8 +53,11 @@ M.plugins = {
   --              use "custom.blankline" to call a file
   default_plugin_config_replace = {
     nvim_treesitter = "custom.plugins.treesitter",
-    nvim_tree = "custom.plugins.nvimtree",
+    blankline = pluginConfs.blankline,
   },
 }
+
+vim.opt.list = true
+vim.opt.listchars:append("eol:⌝")
 
 return M
