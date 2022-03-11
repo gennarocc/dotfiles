@@ -18,6 +18,7 @@
     ~/.zshenv: config/zsh/zshenv
     ~/.zlogin: config/zsh/zlogin
     ~/.zlogout: config/zsh/zlogout
+    ~/.config/zsh: config/zsh/
     ~/.Xresources: Xresources
     ~/.xinitrc: xinitrc
     ~/.config/alacritty: config/alacritty/
@@ -31,4 +32,3 @@
     ~/.config/ranger: config/ranger/
     ~/.config/mpd: config/mpd/
     ~/.config/ncmpcpp: config/ncmpcpp/
-    ~/.config/zsh: config/zsh/
