@@ -39,8 +39,13 @@ function prompt_gcc_setup {
   zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{cyan}%r%f'
   zstyle ':vcs_info:git*+set-message:*' git_status hooks 
 
-  # Define prompts.
-  PROMPT='%2~ $editor_info[keymap] '
+  NEWLINE=$'\n'
+  TOP_LEFT_CURVE="╭"
+  BOTTOM_LEFT_CURVE="╰"
+  TOP_LEFT="┌"
+  BOTTOM_LEFT="└"
+  LINE="─"
+  PROMPT='%F{cyan}${TOP_LEFT}${LINE}%f%n%F{black}.%f%M %F{magenta}in%f %2~${NEWLINE}%F{cyan}${BOTTOM_LEFT}%f$editor_info[keymap] '
   RPROMPT='${vcs_info_msg_0_}'
 }
 
