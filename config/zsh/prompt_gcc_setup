@@ -1,7 +1,7 @@
 function +vi-git_status {
   # Check for untracked files or updated submodules since vcs_info does not.
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    hook_com[unstaged]=' %F{red}๐%'
+    hook_com[unstaged]='%F{red}𑇐% '
   fi
 }
 
@@ -32,15 +32,20 @@ function prompt_gcc_setup {
   # Set vcs_info parameters.
   zstyle ':vcs_info:*' enable bzr git hg svn
   zstyle ':vcs_info:*' check-for-changes true
-  zstyle ':vcs_info:*' stagedstr ' %F{green}๏%f'
-  zstyle ':vcs_info:*' unstagedstr ' %F{yellow}๐%f'
-  zstyle ':vcs_info:*' formats ' %b%c%u'
-  zstyle ':vcs_info:*' actionformats " - %b%c%u|%F{cyan}%a%f"
+  zstyle ':vcs_info:git:*' stagedstr '%F{green}𑇐%f '
+  zstyle ':vcs_info:git:*' unstagedstr '%F{yellow}𑇐%f '
+  zstyle ':vcs_info:git:*' formats ' %c%u%b'
+  zstyle ':vcs_info:git:*' actionformats " - %c%u%b|%F{cyan}%a%f"
   zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b|%F{cyan}%r%f'
-  zstyle ':vcs_info:git*+set-message:*' hooks git_status
+  zstyle ':vcs_info:git*+set-message:*' git_status hooks 
 
-  # Define prompts.
-  PROMPT='%2~ $editor_info[keymap] '
+  NEWLINE=$'\n'
+  TOP_LEFT_CURVE="╭"
+  BOTTOM_LEFT_CURVE="╰"
+  TOP_LEFT="┌"
+  BOTTOM_LEFT="└"
+  LINE="─"
+  PROMPT='%F{cyan}${TOP_LEFT}${LINE}%f%n%F{black}.%f%M %F{magenta}in%f %2~${NEWLINE}%F{cyan}${BOTTOM_LEFT}%f$editor_info[keymap] '
   RPROMPT='${vcs_info_msg_0_}'
 }
 

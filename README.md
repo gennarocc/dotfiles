@@ -1,7 +1,13 @@
 ### Packages for Shell config
 
 ```
-exa fzf ranger neovim
+exa fzf
+```
+
+#### Not required
+
+```
+ranger neovim
 ```
 
 ### Packages for AwesomeWM config
