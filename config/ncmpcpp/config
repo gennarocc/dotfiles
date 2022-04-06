@@ -2,7 +2,7 @@
 #
 mpd_host = 0.0.0.0
 mpd_port = 6600
-mpd_music_dir = /home/gcc/music
+mpd_music_dir = /home/gcc/Music
 
 # behaviour
 external_editor                  = nvim
@@ -22,7 +22,7 @@ visualizer_color = green, yellow, red
 
 # appearance
 colors_enabled        = "yes"
-playlist_display_mode = "classic"
+playlist_display_mode = "columns"
 user_interface        = classic
 volume_color          = "cyan"
 
