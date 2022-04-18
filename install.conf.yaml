@@ -25,10 +25,7 @@
     ~/.config/awesome: config/awesomewm-config/
     ~/.config/redshift: config/redshift/
     ~/.config/picom: config/picom/
-    ~/.config/nvim: submodules/NvChad/
-    ~/.config/nvim/lua/custom:
-      path: config/nvim/
-      create: false
+    ~/.config/nvim/: config/nvim/
     ~/.config/ranger: config/ranger/
     ~/.config/mpd: config/mpd/
     ~/.config/ncmpcpp: config/ncmpcpp/

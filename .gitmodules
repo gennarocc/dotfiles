@@ -23,9 +23,6 @@
 [submodule "config/awesomewm-config"]
 	path = config/awesomewm-config
 	url = git@github.com:gennarocc/awesomewm-config.git
-[submodule "submodules/NvChad"]
-	path = submodules/NvChad
-	url = https://github.com/NvChad/NvChad
 [submodule "submodules/prezto"]
 	path = submodules/prezto
 	url = git@github.com:sorin-ionescu/prezto.git

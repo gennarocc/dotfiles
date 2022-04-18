@@ -23,10 +23,10 @@ function prompt_gcc_setup {
 
   # Tell prezto we can manage this prompt
   zstyle ':prezto:module:prompt' managed 'yes'
-  zstyle ':prezto:module:editor:info:keymap:primary' format '%F{magenta}ﬦ'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%F{magenta}$'
   zstyle ':prezto:module:editor:info:keymap:primary:insert' format 'I'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format 'O'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{red}ﬦ'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format '%F{yellow}$'
   zstyle ':prezto:module:editor:info:completing' format '...'
 
   # Set vcs_info parameters.
