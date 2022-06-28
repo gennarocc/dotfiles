@@ -6,25 +6,25 @@ window:
     x: 26
     y: 20
   dynamic_padding: true
-  opacity: .97
+  opacity: 1 
 
 scrolling:
   history: 5000
 
 font:
   normal:
-    family: TerminessTTF Nerd Font
-    style: Medium
+    family: "TerminessTTF Nerd Font" 
+    style: "Regular"
   bold:
-    family: TerminessTTF Nerd Font
-    style: Bold
+    family: "TerminessTTF Nerd Font"
+    style: "Bold"
   italic:
-    family: TerminessTTF Nerd Font
-    style: Italic
+    family: "TerminessTFF Nerd Font"
+    style: "Italics"
   bold_italic:
-    family: ShureTechMono Nerd Font
-    style: Bold Italic
-  size: 16
+    family: "TerminessTTF Nerd Font"
+    style: "Regular"
+  size: 20
 
 live_config_reload: true
 

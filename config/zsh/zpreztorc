@@ -54,20 +54,17 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 zstyle ':prezto:module:terminal' auto-title 'yes'
 
 # FZF Tab
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # preview directory's content with exa when completing cd
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath' # remember to use single quote here!!!
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 # accept and start a new completion
 zstyle ':fzf-tab:*' continuous-trigger '/'
 # Completion for Gihub
+zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
 	'git diff $word | delta'|
 zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
