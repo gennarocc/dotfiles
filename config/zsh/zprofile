@@ -6,6 +6,7 @@ fi
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -15,12 +16,6 @@ path=(
   $HOME/.bin
   $HOME/.local/bin
   $path)
-
-# Set the Less input preprocessor.
-# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
-if (( $#commands[(i)lesspipe(|.sh)] )); then
-  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
-fi
 
 # Editors
 export EDITOR='/usr/bin/nvim'
@@ -32,7 +27,7 @@ export LESS='-g -i -M -R -S -w -X -z-4'
 export PF_INFO="ascii title os kernel wm pkgs memory shell"
 
 # FZF Config
-export FZF_DEFAULT_OPTS='--preview-window border-sharp --color fg:#ebdbb2,bg:#1d2021,hl:#d79921,fg+:#689d6a,bg+:#282828,hl+:#fabd2f,info:#83a598,prompt:#bdae93,spinner:#b16286,pointer:#689d6a,marker:#fe8019,header:#665c54 '
+export FZF_DEFAULT_OPTS='--preview-window border-sharp'
 
 #Config Files
 alias dot="cd ~/.dotfiles"
@@ -57,6 +52,7 @@ alias zsrc="source ~/.zshrc"
 alias master="git checkout master"
 alias fixup="git commit --fixup="
 alias autosquash="git rebase -i master --autosquash"
+
 function gb() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
@@ -78,18 +74,10 @@ FZF-EOF"
 
 # Paru 
 alias paruconf="paru -Pg"
-alias upgrade="paru -Syu"
 alias up="paru -Syu"
-alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
 alias in="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
-alias uninstall="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
 alias un="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
 alias clean="paru -Rs $(paru -Qqtd)"
-
-# Pi Server
-alias pi="ssh pi@sftp.memeware.us -p 90"
-alias pi2="ssh pi@192.168.1.227 -p 90"
-alias pugshare="sftp -P 90 pug@sftp.memeware.us"
 
 # ls
 TREE_IGNORE="cache|log|logs|node_modules|vendor"

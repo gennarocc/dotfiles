@@ -6,7 +6,7 @@ window:
     x: 26
     y: 20
   dynamic_padding: true
-  opacity: 1 
+  opacity: .95 
 
 scrolling:
   history: 5000
@@ -24,7 +24,7 @@ font:
   bold_italic:
     family: "TerminessTTF Nerd Font"
     style: "Regular"
-  size: 20
+  size: 18
 
 live_config_reload: true
 

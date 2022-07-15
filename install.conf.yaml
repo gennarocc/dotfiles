@@ -22,7 +22,9 @@
     ~/.Xresources: Xresources
     ~/.xinitrc: xinitrc
     ~/.config/alacritty: config/alacritty/
-    ~/.config/awesome: config/awesomewm-config/
+    ~/.config/awesome: config/awesome/
+    ~/.config/awesome/module/bling: submodule/bling/
+    ~/.config/awesome/module/rubato: submodule/rubato/
     ~/.config/redshift: config/redshift/
     ~/.config/picom: config/picom/
     ~/.config/nvim: config/nvim/
