@@ -26,3 +26,9 @@
 [submodule "config/zsh/plugins/fzf-tab"]
 	path = config/zsh/plugins/fzf-tab
 	url = git@github.com:Aloxaf/fzf-tab.git
+[submodule "config/awesome/module/rubato"]
+	path = config/awesome/module/rubato
+	url = git@github.com:andOrlando/rubato.git
+[submodule "config/awesome/module/bling"]
+	path = config/awesome/module/bling
+	url = git@github.com:BlingCorp/bling.git
