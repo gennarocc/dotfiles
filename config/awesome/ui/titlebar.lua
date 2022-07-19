@@ -72,11 +72,11 @@ client.connect_signal("request::titlebars", function(c)
     end)
   )
 
-  awful.titlebar(c, {size = beautiful.titlebar_size}):setup({
+  awful.titlebar(c, { size = beautiful.titlebar_size }):setup({
     {
       helpers.horizontal_pad(4),
       {
-        awful.titlebar.widget.iconwidget (c),
+        awful.titlebar.widget.iconwidget(c),
         top = dpi(6),
         bottom = dpi(6),
         widget = wibox.container.margin,

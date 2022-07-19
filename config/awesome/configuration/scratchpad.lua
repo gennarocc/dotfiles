@@ -28,7 +28,7 @@ local music_control = bling.module.scratchpad({
   autoclose = false,
   floating = true,
   geometry = {
-    x = 0,
+    x = 20,
     y = 400,
     height = 275,
     width = 800,
@@ -48,7 +48,7 @@ local drop_term = bling.module.scratchpad({
   sticky = true,
   autoclose = false,
   floating = true,
-  geometry = { x = (awful.screen.focused().geometry.width / 3), y = 400, height = 250, width = (awful.screen.focused().geometry.width / 3) - 20 },
+  geometry = { x = (awful.screen.focused().geometry.width / 3), y = 400, height = 275, width = (awful.screen.focused().geometry.width / 3) - 20 },
   reapply = true,
   dont_focus_before_close = true,
   rubato = { y = top_drawer },

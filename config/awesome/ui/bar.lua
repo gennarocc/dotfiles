@@ -143,8 +143,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
     screen.primary.mywibox.visible = not vis
   end)
 
-  
-
   client.connect_signal("property::fullscreen", remove_wibar)
 
   client.connect_signal("request::unmanage", add_wibar)
