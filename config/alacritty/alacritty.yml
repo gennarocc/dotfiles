@@ -6,7 +6,7 @@ window:
     x: 26
     y: 20
   dynamic_padding: true
-  opacity: .95 
+  opacity: 1
 
 scrolling:
   history: 5000

@@ -32,6 +32,7 @@ autostart_apps = {
   "[ ! -s ~/.config/mpd/pid ] && mpd ~/.config/mpd/mpd.conf",
   "[[ -z $(pgrep -xU $UID mpdas) ]] && mpdas",
   "mpd-mpris",
+  "[[ -z $(pgrep -xu $UID mpdscribble) ]] && mpdscribble",
 }
 
 for app = 1, #autostart_apps do

@@ -17,6 +17,9 @@ path=(
   $HOME/.local/bin
   $path)
 
+# GO
+export GOPATH=$HOME/.go
+
 # Editors
 export EDITOR='/usr/bin/nvim'
 export VISUAL='/usr/bin/nvim'
@@ -47,6 +50,11 @@ alias ws="cd ~/workspace"
 alias todo="nvim ~/documents/refile.org"
 alias ip="curl https://echoip.xyz"
 alias zsrc="source ~/.zshrc"
+alias windows="systemctl reboot --boot-loader-entry=auto-windows"
+
+#rsync
+alias rsynccp='rsync --recursive --times --modify-window=2 --progress --verbose --itemize-changes --stats --human-readable --chmod=Du+rwx,go-rwx,Fu+rw,go-rw --no-perms'  
+alias rsyncmv='rsync --remove-source-files --recursive --times --modify-window=2 --progress --verbose --itemize-changes --stats --human-readable --chmod=Du+rwx,go-rwx,Fu+rw,go-rw --no-perms'
 
 # Git
 alias master="git checkout master"

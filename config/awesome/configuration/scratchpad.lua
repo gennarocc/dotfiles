@@ -66,7 +66,7 @@ local launcher = bling.module.scratchpad({
   floating = true,
   geometry = {
     x = ((awful.screen.focused().geometry.width / 2) - (685 / 2)),
-    y = ((awful.screen.focused().geometry.width / 2) - (300 / 2)),
+    y = ((awful.screen.focused().geometry.height / 2) - (300 / 2)),
     height = 300,
     width = 685,
   },

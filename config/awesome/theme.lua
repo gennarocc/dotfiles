@@ -16,10 +16,11 @@ local helpers = require("helpers")
 --
 local theme = dofile(themes_path .. "default/theme.lua")
 
-theme.wallpaper = gfs.get_configuration_dir() .. "images/bitsized.png"
-theme.wallpaper_vert = gfs.get_configuration_dir() .. "images/bitsized_vert.png"
+theme.wallpaper = gfs.get_configuration_dir() .. "images/landscape.jpg"
+theme.wallpaper_vert = gfs.get_configuration_dir() .. "images/landscape-vert.png"
 
 -- Icon Path
+theme.icon_theme = "Numix"
 theme.icon_path = gfs.get_configuration_dir() .. "icons/"
 theme.notification_icon = gears.color.recolor_image(theme.icon_path .. "notification.png", theme.xcolor8)
 

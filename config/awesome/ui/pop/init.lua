@@ -5,7 +5,6 @@ local exit_manager = require(... .. ".exitscreen")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
--- local awestore = require("awestore")
 local dashboard = require(... .. ".dashboard")
 
 awesome.connect_signal("widgets::exit_screen::toggle",

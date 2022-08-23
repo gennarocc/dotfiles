@@ -21,7 +21,7 @@ local helpers = require("helpers")
 ----------------
 
 local music_art = wibox.widget({
-  image = gears.filesystem.get_configuration_dir() .. "icons/no_music.png",
+  image = gears.filesystem.get_configuration_dir() .. "icons/no-music.png",
   resize = true,
   widget = wibox.widget.imagebox,
 })
