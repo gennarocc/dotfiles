@@ -37,8 +37,6 @@ local music_art_container = wibox.widget({
 
 local playerctl = require("module.bling").signal.playerctl.lib()
 
-local music_length = 0
-
 playerctl:connect_signal("metadata", function(_, title, artist, album_path, album, ___, player_name)
   if player_name == "mpd" then
     music_art:set_image(gears.surface.load_uncached(album_path))

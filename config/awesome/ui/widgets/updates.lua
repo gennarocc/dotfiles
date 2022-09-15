@@ -8,6 +8,7 @@ local update_script = [[
   "]]
 
 return awful.widget.watch(update_script, update_interval, function(widget, stdout)
-  widget.markup = "<span foreground='" .. beautiful.xcolor6 .. "'> " .. stdout .. "</span>"
-  widget.font = beautiful.font_name .. "14"
+  local output = stdout:gsub("\n", "")
+  widget.markup = "<span foreground='" .. beautiful.xcolor6 .. "'>[ " .. output .. "]</span>"
+  widget.font = beautiful.font_name .. "12"
 end)

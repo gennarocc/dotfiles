@@ -9,6 +9,11 @@ local dpi = xresources.apply_dpi
 local helpers = require("helpers")
 local dashboard = require("ui.pop.dashboard")
 local notif = require("ui.widgets.notif")
+local cpu = require("ui.widgets.cpu")
+local ram = require("ui.widgets.ram")
+local updates = require("ui.widgets.updates")
+local temp = require("ui.widgets.temp")
+local fs = require("ui.widgets.fs")
 
 -- Awesome Panel -----------------------------------------------------------
 
@@ -40,7 +45,7 @@ awesome_icon:connect_signal("mouse::leave", function()
 end)
 
 -- Notification Bell ----------------------------------------------------------
-local notif_bell = notif.create(dpi(18), dpi(10), beautiful.wibar_bg, beautiful.xcolor0)
+local notif_bell = notif.create(dpi(16), dpi(11), beautiful.wibar_bg, beautiful.xcolor0)
 -- Time Widget ----------------------------------------------------------------
 
 local time_text = wibox.widget({
@@ -238,13 +243,18 @@ screen.connect_signal("request::desktop_decoration", function(s)
           widget = wibox.container.constraint,
         },
         {
+          fs.create(),
+          updates,
+          cpu,
+          temp,
+          ram,
           awful.widget.only_on_screen(notif_bell, screen[0]),
           awful.widget.only_on_screen(final_systray, screen[0]),
           helpers.horizontal_pad(4),
           wrap_widget({
             s.mylayoutbox,
-            top = dpi(5),
-            bottom = dpi(5),
+            top = dpi(6),
+            bottom = dpi(6),
             right = dpi(4),
             left = dpi(6),
             widget = wibox.container.margin,

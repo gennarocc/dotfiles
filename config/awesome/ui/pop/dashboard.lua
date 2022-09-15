@@ -1,15 +1,10 @@
--- panel.lua
 -- Panel Widget
-local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 local cpu = require("ui.widgets.cpu")
 local ram = require("ui.widgets.ram")
-local root = require("ui.widgets.root")
-local data = require("ui.widgets.data")
-local share = require("ui.widgets.share")
 local temp = require("ui.widgets.temp")
 local kernal = require("ui.widgets.kernal")
 local pkgs = require("ui.widgets.packages")
@@ -18,7 +13,7 @@ local helpers = require("helpers")
 local rubato = require("module.rubato")
 
 local w = dpi(300)
-local h = dpi(250)
+local h = dpi(300)
 
 local dashboard = wibox({
   visible = false,
@@ -68,7 +63,7 @@ local dash_timed = rubato.timed({
   end,
 })
 
-function dashboard:toggle(screen)
+function dashboard:toggle()
   -- self.screen = screen
   if dashboard.y < 0 then
     self.visible = true
@@ -98,9 +93,6 @@ dashboard:setup({
       temp,
       layout = wibox.layout.align.horizontal,
     },
-    root,
-    data,
-    share,
     layout = wibox.layout.fixed.vertical,
   },
   top = dpi(40),

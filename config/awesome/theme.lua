@@ -122,6 +122,8 @@ theme.titlebar_fg_normal = theme.xbackground
 theme.titlebar_fg_focus = theme.xcolor0
 theme.titlebar_minimize_button_normal = gears.color.recolor_image(gfs.get_configuration_dir() .. "icons/min.png", theme.xcolor3)
 theme.titlebar_minimize_button_focus = gears.color.recolor_image(gfs.get_configuration_dir() .. "icons/min.png", theme.xcolor3)
+theme.titlebar_close_button_normal = gears.color.recolor_image(gfs.get_configuration_dir() .. "icons/close.png", theme.xcolor9)
+theme.titlebar_close_button_focus = gears.color.recolor_image(gfs.get_configuration_dir() .. "icons/close.png", theme.xcolor9)
 
 -- Edge snap
 --
@@ -164,7 +166,7 @@ theme.hotkeys_group_margin = dpi(40)
 theme.hotkeys_shape = helpers.rrect(theme.border_radius)
 
 -- Recolor Layout icons:
-theme = theme_assets.recolor_layout(theme, theme.xforeground)
+theme = theme_assets.recolor_layout(theme, theme.xcolor8)
 
 -- Gaps
 theme.useless_gap = dpi(10)

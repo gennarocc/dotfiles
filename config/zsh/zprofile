@@ -30,6 +30,7 @@ export LESS='-g -i -M -R -S -w -X -z-4'
 export PF_INFO="ascii title os kernel wm pkgs memory shell"
 
 # FZF Config
+source /usr/share/fzf/key-bindings.zsh
 export FZF_DEFAULT_OPTS='--preview-window border-sharp'
 
 #Config Files
