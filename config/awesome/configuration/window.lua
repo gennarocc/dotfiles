@@ -20,8 +20,6 @@ require("module.savefloats")
 -- https://github.com/larkery/awesome/blob/master/better-resize.lua
 require("module.better-resize")
 
-
-
 client.connect_signal("request::manage", function(c)
   -- Set the windows at the slave,
   -- i.e. put it at the end of others instead of setting it master.

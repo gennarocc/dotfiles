@@ -1,14 +1,5 @@
-
-if [[ ! ${DISPLAY} && ${XDG_VTNR} == 8 ]]; then
-    exec startx
-fi
-
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
-
-# Ensure path arrays do not contain duplicates.
-typeset -gU cdpath fpath mailpath path
+# bash environments in which archlinux update news are displayed at the beginning
+export PARU_NEWS_ENVS=(awesome alacritty bitwig-studio)
 
 # Set the list of directories that Zsh searches for programs.
 path=(
@@ -30,7 +21,6 @@ export LESS='-g -i -M -R -S -w -X -z-4'
 export PF_INFO="ascii title os kernel wm pkgs memory shell"
 
 # FZF Config
-source /usr/share/fzf/key-bindings.zsh
 export FZF_DEFAULT_OPTS='--preview-window border-sharp'
 
 #Config Files
@@ -40,28 +30,14 @@ alias vrc="cd ~/.dotfiles/config/nvim && nvim chadrc.lua"
 alias arc="cd ~/.config/awesome && nvim rc.lua"
 
 # Quick Shortcuts
-alias s="sudo"
-alias x="clear"
 alias r="ranger"
-alias nv="nvim"
 alias q="exit"
-alias :q="exit"
-alias :q!="exit"
-alias ws="cd ~/workspace"
-alias todo="nvim ~/documents/refile.org"
-alias ip="curl https://echoip.xyz"
+alias myip="curl https://echoip.xyz"
 alias zsrc="source ~/.zshrc"
 alias windows="systemctl reboot --boot-loader-entry=auto-windows"
-
-#rsync
-alias rsynccp='rsync --recursive --times --modify-window=2 --progress --verbose --itemize-changes --stats --human-readable --chmod=Du+rwx,go-rwx,Fu+rw,go-rw --no-perms'  
-alias rsyncmv='rsync --remove-source-files --recursive --times --modify-window=2 --progress --verbose --itemize-changes --stats --human-readable --chmod=Du+rwx,go-rwx,Fu+rw,go-rw --no-perms'
+alias grep="rg"
 
 # Git
-alias master="git checkout master"
-alias fixup="git commit --fixup="
-alias autosquash="git rebase -i master --autosquash"
-
 function gb() {
   local branches branch
   branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
@@ -82,20 +58,23 @@ FZF-EOF"
 }
 
 # Paru 
-alias paruconf="paru -Pg"
-alias up="paru -Syu"
-alias in="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S"
-alias un="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns"
-alias clean="paru -Rs $(paru -Qqtd)"
+alias update="paru -Syu --removemake  --sudoloop"
+alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S --removemake -- sudoloop"
+alias remove="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rcns"
+alias cclean="sudo paccache -rk3 && sudo pacman -Sc --noconfirm"
+alias pclean="paru -Qdtq | xargs -ro paru -Rs"
 
 # ls
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
-
 alias ls='exa --group-directories-first'
 alias la='ls -a'
-alias ll='ls --git -l'
+alias ll='ls --git -la'
 alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ltt='ls --tree -D -L 3 -I ${TREE_IGNORE}'
 alias lttt='ls --tree -D -L 4 -I ${TREE_IGNORE}'
 alias ltttt='ls --tree -D -L 5 -I ${TREE_IGNORE}'
 
+# display archlinux update news
+if [ -n "$PARU_NEWS_ENVS" ] && [ $(pstree -s $$ | rg ${PARU_NEWS_ENVS[@]/#/-e } -c) ]; then
+    paru -Pw 2> /dev/null
+fi  

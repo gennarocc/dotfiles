@@ -8,7 +8,6 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 -- Custom modules
 local bling = require("module.bling")
-local dashboard = require("ui.pop.dashboard")
 
 -- Client and Tabs Bindings
 awful.keyboard.append_global_keybindings({
@@ -127,8 +126,6 @@ awful.keyboard.append_global_keybindings({
   -- Awesome stuff
   awful.key({ modkey }, "F1", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 
-  awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
-
   awful.key({ modkey }, "x", function()
     awesome.emit_signal("widgets::exit_screen::toggle")
   end, {
@@ -139,13 +136,6 @@ awful.keyboard.append_global_keybindings({
   awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 
   awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-
-  awful.key({ modkey, shift }, "d", function()
-    dashboard:toggle(mouse.screen)
-  end, {
-    description = "show panel",
-    group = "awesome",
-  }),
 
   awful.key({ modkey, shift }, "Escape", function()
     awful.spawn("alacritty -e btop")
@@ -159,7 +149,7 @@ awful.keyboard.append_global_keybindings({
 awful.keyboard.append_global_keybindings({
 
   -- Show Dropdown Term
-  awful.key({ modkey }, "`", function()
+  awful.key({ modkey }, "Escape", function()
     awesome.emit_signal("scratch::term")
   end, {
     description = "Toggle terminal scratchpad",
@@ -173,7 +163,7 @@ awful.keyboard.append_global_keybindings({
   end, {}),
 
   awful.key({ modkey }, "d", function()
-    awesome.emit_signal("scratch::launcher")
+    awful.spawn("alacritty --title Launcher --class Launcher -e /home/gcc/.config/awesome/scripts/launcher.sh")
   end, {}),
 
   awful.key({ modkey }, "z", function()
@@ -330,7 +320,13 @@ client.connect_signal("request::default_keybindings", function()
     awful.key({ modkey }, "m", function(c)
       if c.maximized then
         awful.titlebar.show(c)
+        c.shape = function(cr, w, h)
+          gears.shape.rounded_rect(cr, w, h, beautiful.border_radius)
+        end
       else
+        c.shape = function(cr, w, h)
+          gears.shape.rounded_rect(cr, w, h, 0)
+        end
         awful.titlebar.hide(c)
       end
 

@@ -47,11 +47,11 @@ theme.xcolor15 = xrdb.color15 or "#ebdbb2"
 
 -- Fonts
 --
-theme.font_name = "Terminus Bold "
-theme.font = theme.font_name .. "10"
-theme.icon_font_name = "Terminus Bold "
-theme.icon_font = theme.icon_font_name .. "14"
-theme.font_taglist = theme.icon_font_name .. "9"
+theme.font_name = "TerminessTTF Nerd Font Bold "
+theme.font = theme.font_name .. "12"
+theme.icon_font_name = theme.font_name
+theme.icon_font = theme.icon_font_name .. "16"
+theme.font_taglist = "Terminus 8"
 
 -- Background Colors
 --
@@ -178,7 +178,7 @@ theme.exit_screen_bg = theme.xcolor0 .. "70"
 
 -- Wibar
 --
-theme.wibar_height = dpi(36) + theme.widget_border_width
+theme.wibar_height = dpi(30) + theme.widget_border_width
 theme.wibar_margin = dpi(6)
 theme.wibar_spacing = dpi(6)
 theme.wibar_bg = theme.xbackground .. "fd"

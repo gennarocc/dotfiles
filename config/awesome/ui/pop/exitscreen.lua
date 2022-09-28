@@ -9,11 +9,11 @@ local dpi = xresources.apply_dpi
 local helpers = require("helpers")
 
 -- Appearance
-local icon_font = beautiful.icon_font_name .. 30
-local poweroff_text_icon = ""
-local reboot_text_icon = ""
-local suspend_text_icon = ""
-local exit_text_icon = ""
+local icon_font = beautiful.icon_font_name .. 15
+local poweroff_text_icon = "shutdown"
+local reboot_text_icon = "reboot"
+local suspend_text_icon = "sleep"
+local exit_text_icon = "logout"
 
 local button_bg = beautiful.xbackground
 local button_size = dpi(110)

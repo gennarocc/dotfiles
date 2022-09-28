@@ -1,3 +1,3 @@
 #!/bin/sh
 cd ~/.config/gzdoom/wads/
-ls -h *.WAD | fzf --border=sharp | xargs gzdoom
+ls -1 **/*.(WAD|pk3|wad) | fzf --border=sharp | xargs gzdoom

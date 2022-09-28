@@ -30,8 +30,8 @@ return wibox.widget({
     layout = wibox.layout.align.vertical,
   },
   right = dpi(10),
-  left = dpi (15),
-  top = dpi(10),
-  bottom = dpi(10),
+  left = dpi (10),
+  top = dpi(7),
+  bottom = dpi(5),
   widget = wibox.container.margin,
 })

@@ -45,11 +45,6 @@ client.connect_signal("request::titlebars", function(c)
     },
     {
       {
-        awful.titlebar.widget.minimizebutton(c),
-        margins = dpi(10),
-        widget = wibox.container.margin,
-      },
-      {
         awful.titlebar.widget.closebutton(c),
         margins = dpi(10),
         widget = wibox.container.margin,

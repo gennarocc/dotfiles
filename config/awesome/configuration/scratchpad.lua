@@ -59,7 +59,7 @@ awesome.connect_signal("scratch::term", function()
 end)
 
 local launcher = bling.module.scratchpad({
-  command = "alacritty --title launcher --class launcher,Scratchpad -e /home/gcc/.config/awesome/scripts/launcher.sh",
+  command = "alacritty --title launcher --class launcher -e /home/gcc/.config/awesome/scripts/launcher.sh",
   rule = { instance = "launcher" },
   sticky = true,
   autoclose = false,
