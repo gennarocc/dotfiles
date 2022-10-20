@@ -1,6 +1,3 @@
-# bash environments in which archlinux update news are displayed at the beginning
-export PARU_NEWS_ENVS=(awesome alacritty bitwig-studio)
-
 # Set the list of directories that Zsh searches for programs.
 path=(
   /usr/local/{bin,sbin}
@@ -8,24 +5,18 @@ path=(
   $HOME/.local/bin
   $path)
 
-# GO
+# Env
 export GOPATH=$HOME/.go
-
-# Editors
 export EDITOR='/usr/bin/nvim'
 export VISUAL='/usr/bin/nvim'
 export PAGER='less'
 export LESS='-g -i -M -R -S -w -X -z-4'
-
-# Pfetch config
 export PF_INFO="ascii title os kernel wm pkgs memory shell"
-
-# FZF Config
 export FZF_DEFAULT_OPTS='--preview-window border-sharp'
 
 #Config Files
-alias dot="cd ~/.dotfiles"
-alias zrc="nvim ~/.zprofile"
+alias dots="cd ~/.dotfiles"
+alias zrc="nvim ~/.zprofile && source ~/.zshrc"
 alias vrc="cd ~/.dotfiles/config/nvim && nvim chadrc.lua"
 alias arc="cd ~/.config/awesome && nvim rc.lua"
 
@@ -33,9 +24,9 @@ alias arc="cd ~/.config/awesome && nvim rc.lua"
 alias r="ranger"
 alias q="exit"
 alias myip="curl https://echoip.xyz"
-alias zsrc="source ~/.zshrc"
 alias windows="systemctl reboot --boot-loader-entry=auto-windows"
-alias grep="rg"
+alias grep="grep --color"
+alias grepl="grep --color | less -R"
 
 # Git
 function gb() {
@@ -59,7 +50,7 @@ FZF-EOF"
 
 # Paru 
 alias update="paru -Syu --removemake  --sudoloop"
-alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S --removemake -- sudoloop"
+alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S --removemake --sudoloop"
 alias remove="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rcns"
 alias cclean="sudo paccache -rk3 && sudo pacman -Sc --noconfirm"
 alias pclean="paru -Qdtq | xargs -ro paru -Rs"
@@ -73,8 +64,3 @@ alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ltt='ls --tree -D -L 3 -I ${TREE_IGNORE}'
 alias lttt='ls --tree -D -L 4 -I ${TREE_IGNORE}'
 alias ltttt='ls --tree -D -L 5 -I ${TREE_IGNORE}'
-
-# display archlinux update news
-if [ -n "$PARU_NEWS_ENVS" ] && [ $(pstree -s $$ | rg ${PARU_NEWS_ENVS[@]/#/-e } -c) ]; then
-    paru -Pw 2> /dev/null
-fi  

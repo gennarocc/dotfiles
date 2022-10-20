@@ -1,10 +1,8 @@
 local awful = require("awful")
 local gears = require("gears")
 local gfs = gears.filesystem
-local wibox = require("wibox")
 local beautiful = require("beautiful")
-local dpi = require("beautiful.xresources").apply_dpi
-local helpers = require("helpers")
+local ruled = require("ruled")
 require("awful.autofocus")
 
 -- Bling Module
@@ -29,10 +27,17 @@ client.connect_signal("request::manage", function(c)
     awful.placement.no_offscreen(c)
   end
 
-  c.shape = function(cr,w,h)
-    gears.shape.rounded_rect(cr,w,h,beautiful.border_radius)
+  c.shape = function(cr, w, h)
+    gears.shape.rounded_rect(cr, w, h, beautiful.border_radius)
   end
 
+  if not c.class then
+    c.minimized = true
+    c:connect_signal("property::class", function()
+      c.minimized = false
+      ruled.client.apply(c)
+    end)
+  end
   -- Custom icons --------------------------------------------------------------
   if c.class == "Alacritty" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/term.png")
@@ -48,9 +53,9 @@ client.connect_signal("request::manage", function(c)
   elseif c.class == "mumble" or c.instance == "mumble" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/mumble.png")
     c.icon = new_icon._native
---  elseif c.class == "firefox" then
---    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/firefox.png")
---    c.icon = new_icon._native
+  --  elseif c.class == "firefox" then
+  --    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/firefox.png")
+  --    c.icon = new_icon._native
   elseif c.class == "dota2" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/dota2.png")
     c.icon = new_icon._native
@@ -83,10 +88,9 @@ client.connect_signal("unfocus", function(c)
 end)
 
 -- Set the layouts
-awful.layout.layouts = {
-  awful.layout.suit.tile,
-  awful.layout.suit.floating,
-  bling.layout.horizontal,
-}
-
+-- awful.layout.layouts = {
+--   awful.layout.suit.tile,
+--   awful.layout.suit.floating,
+--   bling.layout.horizontal,
+-- }
 -- EOF ------------------------------------------------------------------------

@@ -10,7 +10,6 @@ local rules = {
       size_hints_honor = false,
       screen = awful.screen.preferred,
       placement = awful.placement.centered + awful.placement.no_offscreen,
-      floating = false,
       maximized = false,
       above = false,
       below = false,
@@ -45,7 +44,8 @@ local rules = {
       class = {
         "Steam",
         "Scratchpad",
-        "com.bitwig.BitwigStudio"
+        "com.bitwig.BitwigStudio",
+        "battle.net.exe"
       },
       name = { "Launcher" }
     },

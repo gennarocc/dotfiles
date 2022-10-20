@@ -109,7 +109,7 @@ awful.keyboard.append_global_keybindings({
     group = "awesome",
   }),
 
-  -- Screen Shots/Vids
+  -- Screen Shots
   awful.key({}, "Print", function()
     awful.spawn("flameshot full --clipboard --path /home/gcc/Pictures/screenshots/")
   end, {
@@ -196,7 +196,7 @@ awful.keyboard.append_global_keybindings({
   awful.key({ modkey }, "Tab", function()
     awful.layout.inc(-1)
   end, {
-    description = "select previous",
+    description = "Change layout",
     group = "layout",
   }),
 

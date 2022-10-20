@@ -14,7 +14,6 @@ local updates = require("ui.widgets.updates")
 local fs = require("ui.widgets.fs")
 
 -- Awesome Panel -----------------------------------------------------------
-
 local awesome_icon = wibox.widget({
   {
     {
@@ -30,10 +29,6 @@ local awesome_icon = wibox.widget({
   widget = wibox.container.background,
 })
 
--- awesome_icon:buttons(gears.table.join(awful.button({}, 1, function()
---   dashboard:toggle(mouse.screen)
--- end)))
---
 awesome_icon:connect_signal("mouse::enter", function()
   awesome_icon.bg = beautiful.lighter_bg
 end)
@@ -42,8 +37,6 @@ awesome_icon:connect_signal("mouse::leave", function()
   awesome_icon.bg = beautiful.wibar_bg
 end)
 
--- Notification Bell ----------------------------------------------------------
-local notif_bell = notif.create(dpi(16), dpi(8), beautiful.wibar_bg, beautiful.xcolor0)
 -- Time Widget ----------------------------------------------------------------
 
 local time_text = wibox.widget({
@@ -185,33 +178,35 @@ screen.connect_signal("request::desktop_decoration", function(s)
         {
           {
             awful.widget.clienticon,
-            forced_width = dpi(20),
-            forced_height = dpi(20),
-            widget = wibox.container.constraint,
+            left= dpi(5),
+            widget = wibox.container.margin,
+            layout = wibox.layout.fixed.vertical,
           },
-          top = dpi(7),
-          bottom = dpi(5),
-          widget = wibox.container.margin,
-        },
-        {
-          id = "indicator",
-          forced_width = dpi(18),
-          forced_height = dpi(1),
-          visible = false,
-          bg = beautiful.xcolor14,
-          shape = gears.shape.rectangle,
+          id = "icon",
+          bg = beautiful.xcolor8 .. "00",
+          forced_width = dpi(20),
+          forced_height = dpi(20),
+          shape = function(cr, width, height)
+            gears.shape.rounded_rect(cr, width, height, beautiful.border_radius)
+          end,
           widget = wibox.container.background,
         },
-        layout = wibox.layout.fixed.vertical,
+        top = dpi(5),
+        bottom = dpi(5),
+        left = dpi(2),
+        right = dpi(2),
+        widget = wibox.container.margin
       },
       id = "background_role",
       widget = wibox.container.background,
       create_callback = function(self, c, index, clients)
         c:connect_signal("focus", function()
-          self:get_children_by_id("indicator")[1].visible = true
+          -- self:get_children_by_id("indicator")[1].visible = true
+          self:get_children_by_id("icon")[1].bg = beautiful.xcolor8 .. "73"
         end)
         c:connect_signal("unfocus", function()
-          self:get_children_by_id("indicator")[1].visible = false
+          -- self:get_children_by_id("indicator")[1].visible = false
+          self:get_children_by_id("icon")[1].bg = beautiful.xcolor8 .. "00"
         end)
         self:connect_signal("mouse::enter", function()
           awesome.emit_signal("bling::task_preview::visibility", s, true, c)
@@ -241,11 +236,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
           widget = wibox.container.constraint,
         },
         {
-          fs.create(),
+          fs.create(16, 8, beautiful.xcolor8, beautiful.xcolor0),
           updates,
           cpu,
           ram,
-          awful.widget.only_on_screen(notif_bell, screen[0]),
+          awful.widget.only_on_screen(notif.create(16, 8, beautiful.wibar_bg, beautiful.xcolor0), screen[1]),
           awful.widget.only_on_screen(final_systray, screen[0]),
           helpers.horizontal_pad(4),
           wrap_widget({

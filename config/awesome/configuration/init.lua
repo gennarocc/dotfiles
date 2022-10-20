@@ -25,26 +25,26 @@ shift = "Shift"
 ctrl = "Control"
 
 screen.connect_signal("request::wallpaper", function(s)
-    if (s == screen[1]) then
-    awful.wallpaper {
-        screen = s,
-        widget = {
-            horizontal_fit_policy = "fit",
-            vertical_fit_policy = "fit",
-            image = beautiful.wallpaper,
-            widget = wibox.widget.imagebox
-        }
-    }
+  if s == screen[1] then
+    awful.wallpaper({
+      screen = s,
+      widget = {
+        horizontal_fit_policy = "fit",
+        vertical_fit_policy = "fit",
+        image = beautiful.wallpaper,
+        widget = wibox.widget.imagebox,
+      },
+    })
   else
-    awful.wallpaper {
+    awful.wallpaper({
       screen = s,
       widget = {
         horizontal_fit_policy = "fit",
         vertical_fit_policy = "fit",
         image = beautiful.wallpaper_vert,
-        widget = wibox.widget.imagebox
-      }
-    }
+        widget = wibox.widget.imagebox,
+      },
+    })
   end
 end)
 
@@ -68,7 +68,62 @@ screen.connect_signal("request::desktop_decoration", function(s)
   screen[s].padding = { left = 0, right = 0, top = 0, bottom = 0 }
 
   -- Each screen has its own tag table.
-  awful.tag({ "i", "ii", "iii", "iv", "v" }, s, awful.layout.layouts[1])
+  if s.index == 1 then
+    awful.tag.add("i", {
+      layout = awful.layout.suit.floating,
+      layouts = { awful.layout.suit.tile, awful.layout.suit.floating },
+      screen = s,
+      selected = true,
+    })
+    awful.tag.add("ii", {
+      layout = awful.layout.suit.floating,
+      layouts = { awful.layout.suit.tile, awful.layout.suit.floating },
+      screen = s,
+    })
+    awful.tag.add("iii", {
+      layout = awful.layout.suit.floating,
+      layouts = { awful.layout.suit.tile, awful.layout.suit.floating },
+      screen = s,
+    })
+    awful.tag.add("iv", {
+      layout = awful.layout.suit.floating,
+      layouts = { awful.layout.suit.tile, awful.layout.suit.floating },
+      screen = s,
+    })
+    awful.tag.add("v", {
+      layout = awful.layout.suit.floating,
+      layouts = { awful.layout.suit.tile, awful.layout.suit.floating },
+      screen = s,
+    })
+  end
+  if s.index == 2 then
+    awful.tag.add("i", {
+      layout = bling.layout.horizontal,
+      layouts = { awful.layout.suit.floating, bling.layout.horizontal },
+      screen = s,
+      selected = true,
+    })
+    awful.tag.add("ii", {
+      layout = bling.layout.horizontal,
+      layouts = { awful.layout.suit.floating, bling.layout.horizontal },
+      screen = s,
+    })
+    awful.tag.add("iii", {
+      layout = bling.layout.horizontal,
+      layouts = { awful.layout.suit.floating, bling.layout.horizontal },
+      screen = s,
+    })
+    awful.tag.add("iv", {
+      layout = bling.layout.horizontal,
+      layouts = { awful.layout.suit.floating, bling.layout.horizontal },
+      screen = s,
+    })
+    awful.tag.add("v", {
+      layout = bling.layout.horizontal,
+      layouts = { awful.layout.suit.floating, bling.layout.horizontal },
+      screen = s,
+    })
+  end
 end)
 
 -- Get Keybinds

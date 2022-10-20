@@ -1,59 +1,59 @@
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
+local fs_share = require("ui.widgets.fs_share")
+local fs_root = require("ui.widgets.fs_root")
+local fs_mount = require("ui.widgets.fs_mount")
 
 local M = {}
 
-local dashboard = wibox({
-  visible = false,
-  height = 200,
-  width = 200,
-  x = 10,
-  y = 410,
-  ontop = true,
-  bg = beautiful.xbackground .. "FA",
-  fg = beautiful.xforeground,
-  border_width = dpi(1),
-  border_color = beautiful.xcolor0,
-  type = "normal",
-  screen = screen.primary,
-})
+M.create = function(size, margin, bg, bg_hover)
+  local expanded = false
 
-M.create = function()
   local button = wibox.widget({
-    text = "",
+    text = "<",
     font = beautiful.font_name .. "12",
     align = "center",
+    forced_height = dpi(size),
+    forced_width = dpi(size),
     widget = wibox.widget.textbox,
   })
 
-  awesome.connect_signal("signal::fs_network", function(used, total)
-    local space_available = string.format("%.1f", tonumber(total - used))
-    button.markup = "<span foreground='"
-      .. beautiful.xcolor8
-      .. "'>[</span><span foreground='"
-      .. beautiful.xcolor9
-      .. "'> </span><span foreground='"
-      .. beautiful.xcolor8
-      .. "'>"
-      .. space_available
-      .. "GiG]</span>"
+  local container = wibox.widget({
+    {
+      fs_root.create(),
+      fs_mount.create(),
+      fs_share.create(),
+      layout = wibox.layout.align.horizontal
+    },
+    visible = false,
+    widget = wibox.container.margin
+  })
+
+  button:connect_signal("button::press", function()
+    if (expanded == false) then
+      container.visible = true
+      button.text = ">"
+      expanded = true
+    else
+      container.visible = false
+      button.text = "<"
+      expanded = false
+    end
   end)
 
-  -- Hanlde button click. Note nuahgty is toggled after.
-  button:connect_signal("button::press", function()
-    dashboard.toggle()
-  end)
+  button:connect_signal("button::leave", function() button.bg = bg end)
+  button:connect_signal("mouse::enter", function() button.bg = bg_hover end)
+  button:connect_signal("mouse::leave", function() button.bg = bg end)
 
   return wibox.widget({
     {
       button,
-      layout = wibox.layout.align.vertical,
+      container,
+      layout = wibox.layout.align.horizontal,
     },
-    right = dpi(15),
-    left = dpi(15),
-    top = dpi(7),
-    bottom = dpi(5),
+    left = dpi(margin),
+    right = dpi(margin),
     widget = wibox.container.margin,
   })
 end
