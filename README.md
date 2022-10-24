@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/13220093/179283192-6ee8bbfa-8576-46bb-a316-29703f00db91.png)
+![2022-10-23_23-32](https://user-images.githubusercontent.com/13220093/197443579-42d22583-53fd-4278-829c-c31a2020c091.png)
 
 ### Packages for Shell config
 
