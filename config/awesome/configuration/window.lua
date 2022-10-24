@@ -31,13 +31,6 @@ client.connect_signal("request::manage", function(c)
     gears.shape.rounded_rect(cr, w, h, beautiful.border_radius)
   end
 
-  if not c.class then
-    c.minimized = true
-    c:connect_signal("property::class", function()
-      c.minimized = false
-      ruled.client.apply(c)
-    end)
-  end
   -- Custom icons --------------------------------------------------------------
   if c.class == "Alacritty" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/term.png")

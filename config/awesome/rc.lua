@@ -39,5 +39,3 @@ mouse = mouse
 -- Garbage Collector Settings
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
-
--- EOF ------------------------------------------------------------------------

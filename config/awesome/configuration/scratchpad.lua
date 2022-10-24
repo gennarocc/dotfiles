@@ -30,7 +30,7 @@ local music_control = bling.module.scratchpad({
   geometry = {
     x = 20,
     y = 400,
-    height = 275,
+    height = 400,
     width = 800,
   },
   reapply = true,

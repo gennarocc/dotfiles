@@ -96,7 +96,7 @@ theme.taglist_fg_urgent = theme.xcolor9
 theme.taglist_bg_occupied = theme.wibar_bg
 theme.taglist_fg_occupied = theme.xcolor11
 theme.taglist_bg_empty = theme.wibar_bg
-theme.taglist_fg_empty = theme.xcolor8
+theme.taglist_fg_empty = theme.xcolor8 .. "99"
 theme.taglist_bg_volatile = theme.wibar_bg
 theme.taglist_fg_volatile = theme.xcolor11
 theme.taglist_disable_icon = true
@@ -114,11 +114,10 @@ theme.tasklist_align = "center"
 
 -- Titlebars
 --
-theme.titlebar_size = dpi(30)
-theme.titlebar_height = dpi(30)
+theme.titlebar_size = dpi(40)
 theme.titlebar_bg_focus = theme.xcolor0
 theme.titlebar_bg_normal = theme.xbackground
-theme.titlebar_fg_normal = theme.xbackground
+theme.titlebar_fg_normal = theme.xcolor8 .. "CC"
 theme.titlebar_fg_focus = theme.xcolor0
 theme.titlebar_minimize_button_normal = gears.color.recolor_image(gfs.get_configuration_dir() .. "icons/min.png", theme.xcolor3)
 theme.titlebar_minimize_button_focus = gears.color.recolor_image(gfs.get_configuration_dir() .. "icons/min.png", theme.xcolor3)

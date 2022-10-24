@@ -149,7 +149,7 @@ awful.keyboard.append_global_keybindings({
 awful.keyboard.append_global_keybindings({
 
   -- Show Dropdown Term
-  awful.key({ modkey }, "Escape", function()
+  awful.key({ modkey }, "`", function()
     awesome.emit_signal("scratch::term")
   end, {
     description = "Toggle terminal scratchpad",

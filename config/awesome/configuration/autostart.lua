@@ -31,12 +31,10 @@ autostart_apps = {
   -- MPD
   "[ ! -s ~/.config/mpd/pid ] && mpd ~/.config/mpd/mpd.conf",
   "[[ -z $(pgrep -xU $UID mpdas) ]] && mpdas",
-  "mpd-mpris",
+  "mpDris2",
   "[[ -z $(pgrep -xu $UID mpdscribble) ]] && mpdscribble",
 }
 
 for app = 1, #autostart_apps do
   run_once(autostart_apps[app])
 end
-
--- EOF ------------------------------------------------------------------------
