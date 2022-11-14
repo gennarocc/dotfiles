@@ -1,5 +1,4 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
 
 local rules = {
   {
@@ -37,6 +36,16 @@ local rules = {
       ontop = true,
       screen = screen.primary,
     },
+  },
+  {
+    rule = { name = "Terminal"},
+    properties = {
+      width = 950,
+      height = 400,
+      x = 810,
+      y = 400,
+      ontop = true,
+    }
   },
   {
     rule_any = { type = { "normal", "dialog" } },

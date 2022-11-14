@@ -33,13 +33,13 @@ client.connect_signal("request::manage", function(c)
 
   -- Custom icons --------------------------------------------------------------
   if c.class == "Alacritty" then
-    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/term.png")
-    c.icon = new_icon._native
-    c.icon = new_icon._native
+    -- local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/term.png")
+    -- c.icon = new_icon._native
+    -- c.icon = new_icon._native
   elseif c.class == "Scratchpad" then
-    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/term.png")
-    c.icon = new_icon._native
-    c.icon = new_icon._native
+    -- local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/term.png")
+    -- c.icon = new_icon._native
+    -- c.icon = new_icon._native
   elseif c.class == "slack" or c.instance == "slack" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/slack.png")
     c.icon = new_icon._native

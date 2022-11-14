@@ -18,20 +18,14 @@ autostart_apps = {
   "xrandr --output DisplayPort-0 --mode 2560x1440 --rate 143.86 --primary --pos 0x0 --output DisplayPort-1 --mode 2560x1440 --rate 143.86 --pos 2560x-350 --rotate right",
   -- Redshift
   "redshift",
-  -- Netowrk Tray Icon
-  "nm-applet",
   -- Bluetooth Tray Icon
   "blueman-applet",
-  -- Remap Capslock
-  "setxkbmap -option caps:escape",
-  -- Screenshot Tool
-  "flameshot",
   -- Compositor
   "picom -b --experimental-backends --config ~/.config/picom/picom.conf",
   -- MPD
   "[ ! -s ~/.config/mpd/pid ] && mpd ~/.config/mpd/mpd.conf",
   "[[ -z $(pgrep -xU $UID mpdas) ]] && mpdas",
-  "mpDris2",
+  "mpd-mpdas",
   "[[ -z $(pgrep -xu $UID mpdscribble) ]] && mpdscribble",
 }
 

@@ -1,15 +1,10 @@
--- keys.lua
--- Contains Global Keys
 local gears = require("gears")
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local helpers = require("helpers")
 local beautiful = require("beautiful")
-local dpi = beautiful.xresources.apply_dpi
--- Custom modules
 local bling = require("module.bling")
 
--- Client and Tabs Bindings
 awful.keyboard.append_global_keybindings({
   -- Change window focus
   awful.key({ modkey }, "Down", function()
@@ -54,8 +49,7 @@ awful.keyboard.append_global_keybindings({
   end, {
     description = "swap with previous client by index",
     group = "client",
-  }), -- Swap to urgent tag
-  awful.key({ modkey }, "u", awful.client.urgent.jumpto, { description = "jump to urgent client", group = "client" }),
+  }),
 })
 
 -- Awesomewm
@@ -91,7 +85,7 @@ awful.keyboard.append_global_keybindings({
     group = "awesome",
   }),
   awful.key({}, "XF86AudioNext", function()
-    awful.spawn("mpd next")
+    awful.spawn("mpc next")
   end, {
     description = "mpd next track",
     group = "awesome",
@@ -109,17 +103,10 @@ awful.keyboard.append_global_keybindings({
     group = "awesome",
   }),
 
-  -- Screen Shots
-  awful.key({}, "Print", function()
-    awful.spawn("flameshot full --clipboard --path /home/gcc/Pictures/screenshots/")
+  awful.key({ modkey, "Shift"}, "p", function()
+    awful.spawn(gears.filesystem.get_configuration_dir() .. "scripts/shoot selnp")
   end, {
     description = "take a screenshot of desktop",
-    group = "awesome",
-  }),
-  awful.key({ modkey }, "Print", function()
-    awful.spawn("flameshot gui --clipboard --path /home/gcc/Pictures/screenshots/")
-  end, {
-    description = "take a selection screenshot",
     group = "awesome",
   }),
 
@@ -148,31 +135,24 @@ awful.keyboard.append_global_keybindings({
 -- Launcher and screen
 awful.keyboard.append_global_keybindings({
 
-  -- Show Dropdown Term
-  awful.key({ modkey }, "`", function()
-    awesome.emit_signal("scratch::term")
-  end, {
-    description = "Toggle terminal scratchpad",
-    group = "Scratchpad",
-  }),
+  awful.key({ modkey }, "t", function()
+    awesome.spawn("alacritty --title Terminal")
+  end, {}),
 
-  -- Show Music Controller
   awful.key({ modkey }, "p", function()
-    awesome.emit_signal("scratch::music")
-    -- awesome.emit_signal("scratch::vis")
+    awesome.spawn("alacritty --title music --class music -e ncmpcpp")
   end, {}),
 
   awful.key({ modkey }, "d", function()
-    awful.spawn("alacritty --title Launcher --class Launcher -e /home/gcc/.config/awesome/scripts/launcher.sh")
+    awful.spawn("alacritty --title Launcher --class Launcher -e" .. gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh")
   end, {}),
 
   awful.key({ modkey }, "z", function()
-    awesome.emit_signal("scratch::doomwad")
+    awesome.spawn("alacritty --title Launcher --class Launcher -e" .. gears.filesystem.get_configuration_dir() .. ".config/awesome/scripts/doomwad.sh")
   end, {}),
 
-  -- Show Game Launcher
   awful.key({ modkey }, "g", function()
-    awesome.emit_signal("scratch::games")
+    awesome.spawn("alacritty --title Launcher --class Launcher -e " .. gears.filesystem.get_configuration_dir() .. "scripts/games-launcher.sh")
   end, {
     description = "Show games launcher",
     group = "Scratchpad",
@@ -193,46 +173,12 @@ awful.keyboard.append_global_keybindings({
     description = "Window Switcher",
     group = "client",
   }),
+
   awful.key({ modkey }, "Tab", function()
     awful.layout.inc(-1)
   end, {
     description = "Change layout",
     group = "layout",
-  }),
-
-  -- Open Terminal
-  awful.key({ modkey }, "t", function()
-    awful.spawn(terminal)
-  end, {
-    description = "open a terminal",
-    group = "launcher",
-  }),
-
-  awful.key({ modkey, shift }, "t", function()
-    awful.spawn.easy_async_with_shell("slop -b 2 -c '0.61,0.9,0.75,1' -p -2", function(out)
-      local mywidth, myheight, myx, myy = string.match(out, "(.*)x(.*)+(.*)+(.*)")
-
-      awful.spawn(terminal, {
-        geometry = {
-          x = myx,
-          y = myy,
-          height = myheight,
-          width = mywidth,
-        },
-        floating = true,
-      })
-    end)
-  end, {
-    description = "open a terminal",
-    group = "launcher",
-  }),
-
-  -- Open File Manager
-  awful.key({ modkey }, "r", function()
-    awful.spawn(filemanager)
-  end, {
-    description = "open file browser",
-    group = "launcher",
   }),
 
   -- Open Firefox

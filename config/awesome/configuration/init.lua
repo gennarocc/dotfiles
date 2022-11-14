@@ -134,6 +134,3 @@ require("configuration.ruled")
 
 -- Layouts, Titlebars, and other Window configs
 require("configuration.window")
-
--- Scratchpad
-require("configuration.scratchpad")
