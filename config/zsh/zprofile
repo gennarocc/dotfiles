@@ -21,12 +21,13 @@ alias vrc="cd ~/.dotfiles/config/nvim && nvim chadrc.lua"
 alias arc="cd ~/.config/awesome && nvim rc.lua"
 
 # Quick Shortcuts
-alias r="ranger"
+alias nnn="nnn -CE"
 alias q="exit"
 alias myip="curl https://echoip.xyz"
 alias windows="systemctl reboot --boot-loader-entry=auto-windows"
 alias grep="grep --color"
 alias grepl="grep --color | less -R"
+alias q="exit"
 
 # Git
 function gb() {

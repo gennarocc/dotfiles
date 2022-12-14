@@ -202,11 +202,11 @@ screen.connect_signal("request::desktop_decoration", function(s)
       create_callback = function(self, c, index, clients)
         c:connect_signal("focus", function()
           -- self:get_children_by_id("indicator")[1].visible = true
-          self:get_children_by_id("icon")[1].bg = beautiful.xcolor8 .. "73"
+          -- self:get_children_by_id("icon")[1].bg = beautiful.xcolor8 .. "73"
         end)
         c:connect_signal("unfocus", function()
           -- self:get_children_by_id("indicator")[1].visible = false
-          self:get_children_by_id("icon")[1].bg = beautiful.xcolor8 .. "00"
+          -- self:get_children_by_id("icon")[1].bg = beautiful.xcolor8 .. "00"
         end)
         self:connect_signal("mouse::enter", function()
           awesome.emit_signal("bling::task_preview::visibility", s, true, c)

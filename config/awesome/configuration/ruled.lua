@@ -44,7 +44,6 @@ local rules = {
       height = 400,
       x = 810,
       y = 400,
-      ontop = true,
     }
   },
   {
@@ -56,7 +55,7 @@ local rules = {
         "com.bitwig.BitwigStudio",
         "battle.net.exe"
       },
-      name = { "Launcher" }
+      name = { "Launcher", "SteamVR Status" }
     },
     properties = { titlebars_enabled = true },
   },
