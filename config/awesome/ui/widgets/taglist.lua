@@ -3,6 +3,7 @@ local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
+local animation = require("module.animation")
 local dpi = xresources.apply_dpi
 
 local get_taglist = function(s)
@@ -34,35 +35,68 @@ local get_taglist = function(s)
     screen = s,
     filter = awful.widget.taglist.filter.all,
     style = { shape = gears.shape.rectangle },
-    layout = { spacing = 0, layout = wibox.layout.fixed.horizontal },
+    layout = { spacing = 20, layout = wibox.layout.fixed.horizontal },
     widget_template = {
-      {
-        { id = "text_role", widget = wibox.widget.textbox },
-        id = "margin_role",
-        left = dpi(10),
-        right = dpi(10),
-        widget = wibox.container.margin,
-      },
       id = "background_role",
       widget = wibox.container.background,
-      create_callback = function(self, c3, index, objects)
+      create_callback = function(self, c3, _)
+        local indicator = wibox.widget({
+          widget = wibox.container.place,
+          valign = "center",
+          {
+            widget = wibox.container.background,
+            forced_height = dpi(4),
+            shape = gears.shape.rounded_bar,
+          },
+        })
+
+        self.indicator_animation = animation:new({
+          duration = 0.125,
+          easing = animation.easing.linear,
+          update = function(self, pos)
+            indicator.children[1].forced_width = pos
+          end,
+        })
+
+        self:set_widget(indicator)
+
+        if c3.selected then
+          self.widget.children[1].bg = beautiful.accent
+          self.indicator_animation:set(dpi(64))
+        elseif #c3:clients() == 0 then
+          self.widget.children[1].bg = beautiful.xcolor8
+          self.indicator_animation:set(dpi(16))
+        elseif c3.urgent then
+          self.widget.children[1].bg = beautiful.xcolor8
+          self.indicator_animation:set(dpi(32))
+        else
+          self.widget.children[1].bg = beautiful.xcolor11
+          self.indicator_animation:set(dpi(32))
+        end
+
+        --- Tag preview
         self:connect_signal("mouse::enter", function()
           if #c3:clients() > 0 then
             awesome.emit_signal("bling::tag_preview::update", c3)
             awesome.emit_signal("bling::tag_preview::visibility", s, true)
           end
-          if self.bg ~= beautiful.xbackground .. "60" then
-            self.backup = self.bg
-            self.has_backup = true
-          end
-          self.bg = beautiful.xbackground .. "60"
         end)
+
         self:connect_signal("mouse::leave", function()
           awesome.emit_signal("bling::tag_preview::visibility", s, false)
-          if self.has_backup then
-            self.bg = self.backup
-          end
         end)
+      end,
+      update_callback = function(self, c3, _)
+        if c3.selected then
+          self.widget.children[1].bg = beautiful.accent
+          self.indicator_animation:set(dpi(64))
+        elseif #c3:clients() == 0 then
+          self.widget.children[1].bg = beautiful.xcolor8
+          self.indicator_animation:set(dpi(16))
+        else
+          self.widget.children[1].bg = beautiful.xcolor11
+          self.indicator_animation:set(dpi(32))
+        end
       end,
     },
     buttons = taglist_buttons,

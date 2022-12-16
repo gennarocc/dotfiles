@@ -44,6 +44,7 @@ theme.xcolor12 = xrdb.color12 or "#83a598"
 theme.xcolor13 = xrdb.color13 or "#d3869b"
 theme.xcolor14 = xrdb.color14 or "#83c07c"
 theme.xcolor15 = xrdb.color15 or "#ebdbb2"
+theme.accent = theme.xcolor14
 
 -- Fonts
 --
@@ -58,7 +59,7 @@ theme.font_taglist = "Terminus 8"
 theme.bg_dark = theme.xcolor0
 theme.bg_normal = theme.xbackground
 theme.bg_focus = theme.xcolor0
-theme.bg_urgent = theme.xcolor8
+theme.bg_urgent = theme.xcolor9
 theme.bg_minimize = theme.xcolor8
 
 -- Foreground Colors
@@ -89,7 +90,7 @@ theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 theme.taglist_font = theme.font_taglist
 theme.taglist_bg = theme.xbackground
-theme.taglist_bg_focus = theme.xcolor0
+theme.taglist_bg_focus = theme.xbackground
 theme.taglist_fg_focus = theme.xcolor14
 theme.taglist_bg_urgent = theme.xbackground
 theme.taglist_fg_urgent = theme.xcolor9
@@ -109,7 +110,7 @@ theme.tasklist_plain_task_name = true
 theme.tasklist_bg_focus = theme.xbackground .. "00"
 theme.tasklist_bg_minimize = theme.xbackground .. "00"
 theme.tasklist_bg_normal = theme.xbackground .. "00"
-theme.tasklist_bg_urgent = theme.xcolor1
+theme.tasklist_bg_urgent = theme.xcolor9
 theme.tasklist_align = "center"
 
 -- Titlebars
@@ -204,7 +205,7 @@ theme.collision_focus_shape_center = gears.shape.circle
 theme.collision_max_bg = theme.xbackground
 theme.collision_max_fg = theme.xcolor8
 theme.collision_max_shape = helpers.rrect(theme.border_radius)
-theme.bg_urgent = theme.xcolor1
+theme.bg_urgent = theme.xcolor9
 
 theme.collision_resize_width = dpi(20)
 theme.collision_resize_shape = theme.collision_focus_shape
