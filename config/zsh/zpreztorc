@@ -20,7 +20,6 @@ zstyle ':prezto:load' pmodule \
   'fzf-tab' \
   'syntax-highlighting' \
   'history-substring-search' \
-  'autosuggestions' \
   'prompt' \
 
 # Prompt
@@ -42,13 +41,6 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'line' \
   'cursor' \
   'root'
-
-# Set syntax highlighting styles.
-# zstyle ':prezto:module:syntax-highlighting' styles \
-#   'builtin' 'bg=blue' \
-#   'command' 'bg=blue' \
-#   'function' 'bg=blue'
-#
 
 # Auto set the tab and window titles.
 zstyle ':prezto:module:terminal' auto-title 'yes'

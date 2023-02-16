@@ -1,14 +1,11 @@
-# dirs
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-
+# Go Back 
 alias -- -='cd -'
 alias 1='cd -'
 alias 2='cd -2'
 alias 3='cd -3'
 alias 4='cd -4'
 
+# FOlders
 alias md='mkdir -p'
 alias rd=rmdir
 
@@ -19,7 +16,7 @@ alias arc="cd ~/.config/awesome && nvim rc.lua"
 
 # Quick Shortcuts
 alias q="exit"
-alias myip="curl https://echoip.xyz"
+alias ip4="curl https://echoip.xyz"
 alias grep="rg"
 alias grepl="rg | less -R"
 alias q="exit"
