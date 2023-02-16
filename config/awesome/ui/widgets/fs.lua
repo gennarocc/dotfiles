@@ -1,60 +1,56 @@
 local wibox = require("wibox")
 local beautiful = require("beautiful")
+local gears = require("gears")
+local awful = require("awful")
 local dpi = beautiful.xresources.apply_dpi
-local fs_share = require("ui.widgets.fs_share")
-local fs_root = require("ui.widgets.fs_root")
-local fs_mount = require("ui.widgets.fs_mount")
 
 local M = {}
+local update_interval = 60
 
-M.create = function(size, margin, bg, bg_hover)
-  local expanded = false
+M.create = function(path, fg)
 
-  local button = wibox.widget({
-    text = "<",
-    font = beautiful.font_name .. "12",
-    align = "center",
-    forced_height = dpi(size),
-    forced_width = dpi(size),
-    widget = wibox.widget.textbox,
+  local disk_script = [[
+    sh -c "
+    df -kh -B 1MB ]] .. path .. [[ | tail -1 | awk '{printf \"%d@%d\", $4, $3}'
+    "
+]]
+
+  -- Widget Template
+  local progress_bar = wibox.widget({
+    max_value = 100,
+    forced_height = dpi(4),
+    forced_width = dpi(64),
+    color = fg,
+    shape = gears.shape.rounded_bar,
+    background_color = beautiful.xcolor8,
+    widget = wibox.widget.progressbar,
   })
 
-  local container = wibox.widget({
-    {
-      fs_root.create(),
-      fs_mount.create(),
-      fs_share.create(),
-      layout = wibox.layout.align.horizontal
-    },
-    visible = false,
-    widget = wibox.container.margin
-  })
+  local tooltip = awful.tooltip({})
+  tooltip:add_to_object(progress_bar)
 
-  button:connect_signal("button::press", function()
-    if (expanded == false) then
-      container.visible = true
-      button.text = ">"
-      expanded = true
-    else
-      container.visible = false
-      button.text = "<"
-      expanded = false
-    end
-  end)
+  local fs_widget = awful.widget.watch(disk_script, update_interval, function(widget, stdout)
+    -- Update Values
+    local available = tonumber(stdout:match("^(.*)@")) / 1000
+    local used = tonumber(stdout:match("@(.*)$")) / 1000
+    local total = available + used
+    widget.value = tonumber(100 * used / total)
 
-  button:connect_signal("button::leave", function() button.bg = bg end)
-  button:connect_signal("mouse::enter", function() button.bg = bg_hover end)
-  button:connect_signal("mouse::leave", function() button.bg = bg end)
+    -- Tootlip
+    local space_available = string.format("%.1f", tonumber(available))
+    widget:connect_signal("mouse::enter", function()
+      tooltip.text = path .. " " .. space_available .. " GiG"
+    end)
+
+  end, progress_bar)
 
   return wibox.widget({
+    widget = wibox.container.place,
+    valign = "center",
     {
-      button,
-      container,
-      layout = wibox.layout.align.horizontal,
+      fs_widget,
+      layout = wibox.layout.align.vertical,
     },
-    left = dpi(margin),
-    right = dpi(margin),
-    widget = wibox.container.margin,
   })
 end
 

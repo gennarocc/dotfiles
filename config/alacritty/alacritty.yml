@@ -19,11 +19,11 @@ font:
     family: "TerminessTTF Nerd Font"
     style: "Bold"
   italic:
-    family: "TerminessTFF Nerd Font"
-    style: "Italics"
+    family: "TerminessTTF Nerd Font" 
+    style: "Italic"
   bold_italic:
     family: "TerminessTTF Nerd Font"
-    style: "Regular"
+    style: "Bold Italic"
   size: 18
 
 live_config_reload: true

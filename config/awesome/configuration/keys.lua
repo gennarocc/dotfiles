@@ -4,6 +4,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local helpers = require("helpers")
 local beautiful = require("beautiful")
 local bling = require("module.bling")
+local screenshot = require("module.screenshot")
 
 awful.keyboard.append_global_keybindings({
   -- Change window focus
@@ -103,9 +104,7 @@ awful.keyboard.append_global_keybindings({
     group = "awesome",
   }),
 
-  awful.key({ modkey, "Shift"}, "p", function()
-    awful.spawn(gears.filesystem.get_configuration_dir() .. "scripts/shoot selnp")
-  end, {
+  awful.key({ modkey, "Shift"}, "p", scrot_selection, {
     description = "take a screenshot of desktop",
     group = "awesome",
   }),
@@ -123,13 +122,6 @@ awful.keyboard.append_global_keybindings({
   awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 
   awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-
-  awful.key({ modkey, shift }, "Escape", function()
-    awful.spawn("alacritty -e btop")
-  end, {
-    description = "System Utils",
-    group = "system",
-  }),
 })
 
 -- Launcher and screen

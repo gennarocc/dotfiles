@@ -1,62 +1,40 @@
-# Set the list of directories that Zsh searches for programs.
+
 path=(
   /usr/local/{bin,sbin}
   $HOME/.bin
   $HOME/.local/bin
-  $path)
+  $path
+)
 
-# Env
+source ~/.dotfiles/config/zsh/git-functions.zsh
+source ~/.dotfiles/config/zsh/functions.zsh 
+
+# ENV
 export GOPATH=$HOME/.go
 export EDITOR='/usr/bin/nvim'
 export VISUAL='/usr/bin/nvim'
-export PAGER='less'
-export LESS='-g -i -M -R -S -w -X -z-4'
-export PF_INFO="ascii title os kernel wm pkgs memory shell"
-export FZF_DEFAULT_OPTS='--preview-window border-sharp'
+export FZF_DEFAULT_OPTS='--preview-window border-sharp -i --height=50%'
 
 #Config Files
 alias dots="cd ~/.dotfiles"
 alias zrc="nvim ~/.zprofile && source ~/.zshrc"
-alias vrc="cd ~/.dotfiles/config/nvim && nvim chadrc.lua"
 alias arc="cd ~/.config/awesome && nvim rc.lua"
 
 # Quick Shortcuts
-alias nnn="nnn -CE"
 alias q="exit"
 alias myip="curl https://echoip.xyz"
-alias windows="systemctl reboot --boot-loader-entry=auto-windows"
-alias grep="grep --color"
-alias grepl="grep --color | less -R"
+alias grep="rg"
+alias grepl="rg | less -R"
 alias q="exit"
 
-# Git
-function gb() {
-  local branches branch
-  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
-  branch=$(echo "$branches" |
-           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
-
-function gc() {
-  git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF"
-}
-
-# Paru 
+# PARU 
 alias update="paru -Syu --removemake  --sudoloop"
 alias install="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S --removemake --sudoloop"
 alias remove="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rcns"
 alias cclean="sudo paccache -rk3 && sudo pacman -Sc --noconfirm"
 alias pclean="paru -Qdtq | xargs -ro paru -Rs"
 
-# ls
+# LS
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
 alias ls='exa --group-directories-first'
 alias la='ls -a'
@@ -65,3 +43,11 @@ alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ltt='ls --tree -D -L 3 -I ${TREE_IGNORE}'
 alias lttt='ls --tree -D -L 4 -I ${TREE_IGNORE}'
 alias ltttt='ls --tree -D -L 5 -I ${TREE_IGNORE}'
+
+# FZF File explorer
+function  exp() {
+  source ~/.dotfiles/scripts/explorer.sh
+}
+
+zle -N exp
+bindkey -s '^o' 'exp\n'
