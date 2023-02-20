@@ -1,11 +1,3 @@
-# FZF File explorer
-function  exp() {
-  source ~/.dotfiles/scripts/explorer.sh
-}
-
-zle -N exp
-bindkey -s '^o' 'exp\n'
-
 function calc() {
   bc -l <<< $@
 }

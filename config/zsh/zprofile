@@ -8,7 +8,6 @@ path=(
 
 eval "$(jump shell)"
 
-source ~/.dotfiles/config/zsh/git-functions.zsh
 source ~/.dotfiles/config/zsh/functions.zsh 
 
 # ENV
