@@ -3,17 +3,12 @@
 ### Packages for Shell config
 
 ```
-exa fzf
+exa fzf ripgrep delta
 ```
 
-#### Not required
-
-```
-ranger neovim
-```
 
 ### Packages for AwesomeWM config
 
 ```
-awesome mpd ncmpcpp picom alacritty picom redshift
+awesome picom alacritty picom redshift
 ```

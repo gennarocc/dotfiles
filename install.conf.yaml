@@ -30,3 +30,4 @@
     ~/.config/nvim: config/nvim/
     ~/.config/ranger: config/ranger/
     ~/.local/bin/: bin/
+    ~/.config/tmux: tmux/

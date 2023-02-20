@@ -31,9 +31,13 @@ client.connect_signal("request::titlebars", function(c)
     {
       helpers.horizontal_pad(4),
       {
-        -- awful.titlebar.widget.titlewidget(c),
-        top = dpi(6),
-        bottom = dpi(6),
+        awful.titlebar.widget.iconwidget(c),
+        margins = dpi(10),
+        widget = wibox.container.margin,
+      },
+      {
+        awful.titlebar.widget.titlewidget(c),
+        bottom = dpi(2),
         widget = wibox.container.margin,
       },
       buttons = buttons,

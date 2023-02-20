@@ -232,7 +232,8 @@ screen.connect_signal("request::desktop_decoration", function(s)
         s.mytaglist,
       },
       {
-        s.mytasklist,
+        -- s.mytasklist,
+        wrap_widget(time_widget),
         widget = wibox.container.constraint,
       },
       {
@@ -255,7 +256,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
           left = dpi(6),
           widget = wibox.container.margin,
         }),
-        wrap_widget(time_widget),
         helpers.horizontal_pad(4),
         layout = wibox.layout.fixed.horizontal,
       },

@@ -58,8 +58,8 @@ client.connect_signal("request::manage", function(c)
   elseif c.class == "Steam" or c.instance == "steam" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/steam.png")
     c.icon = new_icon._native
-  elseif c.class == "code-oss" or c.instance == "code-oss" then
-    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/vscode.png")
+  elseif c.class == "Plex" or c.instance == "Plex" then
+    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/plex.png")
     c.icon = new_icon._native
   elseif c.class == "unityhub" or c.instance == "unityhub" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/unity.png")
@@ -80,10 +80,4 @@ client.connect_signal("unfocus", function(c)
   c.border_color = beautiful.border_normal
 end)
 
--- Set the layouts
--- awful.layout.layouts = {
---   awful.layout.suit.tile,
---   awful.layout.suit.floating,
---   bling.layout.horizontal,
--- }
 -- EOF ------------------------------------------------------------------------

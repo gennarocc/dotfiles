@@ -6,6 +6,8 @@ path=(
   $path
 )
 
+eval "$(jump shell)"
+
 source ~/.dotfiles/config/zsh/git-functions.zsh
 source ~/.dotfiles/config/zsh/functions.zsh 
 
@@ -13,7 +15,14 @@ source ~/.dotfiles/config/zsh/functions.zsh
 export GOPATH=$HOME/.go
 export EDITOR='/usr/bin/nvim'
 export VISUAL='/usr/bin/nvim'
+
+# FZF
 export FZF_DEFAULT_OPTS='--preview-window border-sharp -i --height=50%'
+
+# NNN
+export NNN_PLUG='p:preview-tui;i:imgview;j:autojump;v:rsynccp'
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_FCOLORS='0000d6000000000000000000'
 
 #Config Files
 alias dots="cd ~/.dotfiles"
@@ -21,8 +30,9 @@ alias zrc="nvim ~/.zprofile && source ~/.zshrc"
 alias arc="cd ~/.config/awesome && nvim rc.lua"
 
 # Quick Shortcuts
+alias n="nnn -e"
+alias zsrc="source ~/.zprofile"
 alias q="exit"
-alias myip="curl https://echoip.xyz"
 alias grep="rg"
 alias grepl="rg | less -R"
 alias q="exit"
@@ -43,11 +53,3 @@ alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ltt='ls --tree -D -L 3 -I ${TREE_IGNORE}'
 alias lttt='ls --tree -D -L 4 -I ${TREE_IGNORE}'
 alias ltttt='ls --tree -D -L 5 -I ${TREE_IGNORE}'
-
-# FZF File explorer
-function  exp() {
-  source ~/.dotfiles/scripts/explorer.sh
-}
-
-zle -N exp
-bindkey -s '^o' 'exp\n'

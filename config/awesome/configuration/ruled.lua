@@ -51,6 +51,7 @@ local rules = {
     except_any = {
       class = {
         "Steam",
+        "steamwebhelper",
         "Scratchpad",
         "com.bitwig.BitwigStudio",
         "battle.net.exe"
