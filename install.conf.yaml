@@ -27,8 +27,5 @@
     ~/.config/awesome/module/rubato: submodule/rubato/
     ~/.config/redshift: config/redshift/
     ~/.config/picom: config/picom/
-    ~/.config/nvim: config/nvim/
-    ~/.config/ranger: config/ranger/
-    ~/.local/bin/: bin/
     ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
     ~/.config/nvim/init.lua: config/nvim/init.lua

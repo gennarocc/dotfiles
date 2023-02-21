@@ -2,24 +2,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "config/zsh/plugins/geometry"]
-	path = config/zsh/plugins/geometry
-	url = git@github.com:geometry-zsh/geometry.git
-[submodule "config/zsh/plugins/zsh-autosuggestions"]
-	path = config/zsh/plugins/zsh-autosuggestions
-	url = git@github.com:zsh-users/zsh-autosuggestions.git
-[submodule "config/ranger/plugins/ranger-gitplug"]
-	path = config/ranger/plugins/ranger-gitplug
-	url = git@github.com:yxngh/ranger-gitplug.git
-[submodule "config/ranger/plugins/ranger_devicons"]
-	path = config/ranger/plugins/ranger_devicons
-	url = git@github.com:alexanderjeurissen/ranger_devicons.git
-[submodule "config/ranger/plugins/ranger-archives"]
-	path = config/ranger/plugins/ranger-archives
-	url = git@github.com:maximtrp/ranger-archives.git
-[submodule "config/ranger/plugins/ranger-fzf-marks"]
-	path = config/ranger/plugins/ranger-fzf-marks
-	url = git@github.com:laggardkernel/ranger-fzf-marks.git
 [submodule "submodules/prezto"]
 	path = submodules/prezto
 	url = git@github.com:sorin-ionescu/prezto.git
@@ -35,3 +17,6 @@
 [submodule "config/awesome/module/awesome-wm-widgets"]
 	path = config/awesome/module/awesome-wm-widgets
 	url = git@github.com:streetturtle/awesome-wm-widgets.git
+[submodule "config/tmux/plugins/tpm"]
+	path = config/tmux/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
