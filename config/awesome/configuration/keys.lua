@@ -8,7 +8,7 @@ local screenshot = require("module.screenshot")
 
 awful.keyboard.append_global_keybindings({
   -- Change window focus
-  awful.key({ modkey }, "Down", function()
+  awful.key({ modkey }, "j", function()
     awful.client.focus.bydirection("down")
     bling.module.flash_focus.flashfocus(client.focus)
   end, {
@@ -16,7 +16,7 @@ awful.keyboard.append_global_keybindings({
     group = "client",
   }),
 
-  awful.key({ modkey }, "Up", function()
+  awful.key({ modkey }, "k", function()
     awful.client.focus.bydirection("up")
     bling.module.flash_focus.flashfocus(client.focus)
   end, {
@@ -24,7 +24,7 @@ awful.keyboard.append_global_keybindings({
     group = "client",
   }),
 
-  awful.key({ modkey }, "Left", function()
+  awful.key({ modkey }, "h", function()
     awful.client.focus.bydirection("left")
     bling.module.flash_focus.flashfocus(client.focus)
   end, {
@@ -32,13 +32,15 @@ awful.keyboard.append_global_keybindings({
     group = "client",
   }),
 
-  awful.key({ modkey }, "Right", function()
+  awful.key({ modkey }, "l", function()
     awful.client.focus.bydirection("right")
     bling.module.flash_focus.flashfocus(client.focus)
   end, {
     description = "focus right",
     group = "client",
-  }), -- Swap/move window
+  }),
+
+  -- Swap/move window
   awful.key({ modkey, "Shift" }, "j", function()
     awful.client.swap.byidx(1)
   end, {
@@ -53,44 +55,45 @@ awful.keyboard.append_global_keybindings({
   }),
 })
 
--- Awesomewm
+-- Media Control
 awful.keyboard.append_global_keybindings({
   awful.key({}, "XF86AudioRaiseVolume", function()
     awful.spawn("pamixer -i 3")
   end, {
     description = "increase volume",
-    group = "awesome",
+    group = "Media Control",
   }),
   awful.key({}, "XF86AudioLowerVolume", function()
     awful.spawn("pamixer -d 3")
   end, {
     description = "decrease volume",
-    group = "awesome",
+    group = "Media Control",
   }),
   awful.key({}, "XF86AudioMute", function()
     awful.spawn("pamixer -t")
   end, {
     description = "mute volume",
-    group = "awesome",
-  }), -- Media Control
+    group = "Media Control",
+  }),
   awful.key({}, "XF86AudioPlay", function()
-    awful.spawn("mpc toggle")
+    awful.spawn("playerctl play-pause")
   end, {
-    description = "toggle mpd play/pause",
-    group = "awesome",
+    description = "toggle music play/pause",
+    group = "Media Control",
   }),
   awful.key({}, "XF86AudioPrev", function()
-    awful.spawn("mpc prev")
+    awful.spawn("playerctl previous")
   end, {
-    description = "mpd previous track",
-    group = "awesome",
+    description = "playerctl previous track",
+    group = "Media Control",
   }),
   awful.key({}, "XF86AudioNext", function()
-    awful.spawn("mpc next")
+    awful.spawn("playerctl next")
   end, {
-    description = "mpd next track",
-    group = "awesome",
+    description = "playerctl next track",
+    group = "Media Control",
   }),
+
   awful.key({}, "XF86MonBrightnessUp", function()
     awful.spawn("brightnessctl set 20+")
   end, {
@@ -109,7 +112,7 @@ awful.keyboard.append_global_keybindings({
     group = "awesome",
   }),
 
-  -- Awesome stuff
+ 
   awful.key({ modkey }, "F1", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 
   awful.key({ modkey }, "x", function()
@@ -182,14 +185,14 @@ awful.keyboard.append_global_keybindings({
   }),
 
   -- Resize Windows
-  awful.key({ modkey }, "l", function()
+  awful.key({ modkey }, "Up", function()
     awful.tag.incmwfact(0.05)
   end, {
     description = "increase master width factor",
     group = "layout",
   }),
 
-  awful.key({ modkey }, "h", function()
+  awful.key({ modkey }, "Down", function()
     awful.tag.incmwfact(-0.05)
   end, {
     description = "decrease master width factor",

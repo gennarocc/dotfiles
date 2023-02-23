@@ -67,7 +67,7 @@ local get_taglist = function(s)
           self.widget.children[1].bg = beautiful.xcolor8
           self.indicator_animation:set(dpi(16))
         elseif c3.urgent then
-          self.widget.children[1].bg = beautiful.xcolor8
+          self.widget.children[1].bg = beautiful.xcolor9
           self.indicator_animation:set(dpi(32))
         else
           self.widget.children[1].bg = beautiful.xcolor11

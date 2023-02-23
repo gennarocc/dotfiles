@@ -115,7 +115,7 @@ theme.tasklist_align = "center"
 
 -- Titlebars
 --
-theme.titlebar_size = dpi(40)
+theme.titlebar_size = dpi(30)
 theme.titlebar_bg_focus = theme.xcolor0
 theme.titlebar_bg_normal = theme.xbackground
 theme.titlebar_fg_normal = theme.xcolor8 .. "CC"

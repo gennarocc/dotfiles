@@ -147,7 +147,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
   s.mytaglist = require("ui.widgets.taglist")(s)
 
   -- Create a tasklist widget
-
   local tasklist_buttons = gears.table.join(
     awful.button({}, 1, function(c)
       if c == client.focus then
