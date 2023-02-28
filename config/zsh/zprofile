@@ -9,6 +9,8 @@ path=(
 eval "$(jump shell)"
 
 source ~/.dotfiles/config/zsh/functions.zsh 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # ENV
 export GOPATH=$HOME/.go
@@ -17,6 +19,8 @@ export VISUAL='/usr/bin/nvim'
 
 # FZF
 export FZF_DEFAULT_OPTS='--preview-window border-sharp -i --height=50%'
+export FZF_TMUX=1
+
 
 # NNN
 export NNN_PLUG='p:preview-tui;i:imgview;j:autojump;v:rsynccp'
