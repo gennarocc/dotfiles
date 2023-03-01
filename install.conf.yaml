@@ -10,15 +10,8 @@
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.zprezto: submodules/prezto/
-    ~/.zprezto/modules/prompt/functions/prompt_gcc_setup: config/zsh/prompt_gcc_setup
-    ~/.zshrc: config/zsh/zshrc
-    ~/.zprofile: config/zsh/zprofile
-    ~/.zpreztorc: config/zsh/zpreztorc
-    ~/.zshenv: config/zsh/zshenv
-    ~/.zlogin: config/zsh/zlogin
-    ~/.zlogout: config/zsh/zlogout
-    ~/.config/zsh: config/zsh/
+    ~/.zshrc: config/zsh/.zshrc
+    ~/.zshenv: config/zsh/.zshenv
     ~/.Xresources: Xresources
     ~/.xinitrc: xinitrc
     ~/.config/alacritty: config/alacritty/
