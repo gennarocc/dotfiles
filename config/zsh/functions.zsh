@@ -1,13 +1,33 @@
-function calc() {
-  bc -l <<< $@
+fw() {
+  local projects=$HOME/Workspace
+
+  if [[ ! -d $projects ]]; then
+    echo -e "$projects dir does not exist"
+    return 1
+  fi
+
+  local project=$(fd -t d --max-depth 1 . $projects | awk -F/ '{print $(NF-1)}' | fzf)
+
+  [[ -z $project ]] && return
+
+  cd $projects/$project
 }
 
-function weather () {
-  local options="${2:-1}"
-  curl https://wttr.in/"${1}"\?"${options}"
+fc() {
+  local projects=$HOME/.dotfiles/config
+
+  if [[ ! -d $projects ]]; then
+    echo -e "$projects dir does not exist"
+    return 1
+  fi
+
+  local project=$(fd -t d --max-depth 1 . $projects | awk -F/ '{print $(NF-1)}' | fzf)
+
+  [[ -z $project ]] && return
+
+  cd $projects/$project
 }
 
-alias exp="exp"
+alias fw="fw"
+alias fc="fc"
 alias calc="calc"
-alias weather="weather"
-alias matrix="matrix"
