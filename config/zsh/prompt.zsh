@@ -1,12 +1,14 @@
 function prompt_setup {
-  NEWLINE=$'\n'
-  TOP_LEFT_CURVE="╭"
-  BOTTOM_LEFT_CURVE="╰"
-  TOP_LEFT="┌"
-  BOTTOM_LEFT="└"
-  LINE="─"
-  PROMPT='%F{cyan}%f%n%F{black}.%f%M %F{magenta}in%f %2~%F{cyan}%f %F{magenta}λ%f '
-  RPROMPT=''
+  autoload -Uz add-zsh-hook vcs_info
+  setopt prompt_subst
+  RPROMPT='%F{cyan}${vcs_info_msg_0_}%f'
+  zstyle ':vcs_info:*' check-for-changes true
+  zstyle ':vcs_info:*' unstagedstr ' *'
+  zstyle ':vcs_info:*' stagedstr ' +'
+  zstyle ':vcs_info:git:*' formats       '[%b%u%c]'
+  zstyle ':vcs_info:git:*' actionformats '[%b|%a%u%c]'
+
+  PROMPT='%F{blue}%2~%f %F{magenta}λ%f '
 }
 
 prompt_setup "$@"

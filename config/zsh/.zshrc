@@ -12,8 +12,7 @@ for plugin in ${plugins[@]}; do
 done
 
 source_file prompt.zsh
-# source_file functions.zsh
-source_file git-functions.zsh
+source_file functions.zsh
 source_file history.zsh
 source_file alias.zsh
 source_file completion.zsh
