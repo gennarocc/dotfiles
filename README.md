@@ -3,12 +3,12 @@
 ### Packages for Shell config
 
 ```
-tmux fzf nnn ripgrep rsync bat jump
+tmux fzf nnn ripgrep rsync bat jump fd
 ```
 
 
 ### Packages for AwesomeWM config
 
 ```
-awesome picom alacritty picom redshift
+awesome-git picom-rounded-corners alacritty redshift lnch playerctl 
 ```
