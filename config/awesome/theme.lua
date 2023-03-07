@@ -169,7 +169,7 @@ theme.hotkeys_shape = helpers.rrect(theme.border_radius)
 theme = theme_assets.recolor_layout(theme, theme.xcolor8)
 
 -- Gaps
-theme.useless_gap = dpi(10)
+theme.useless_gap = dpi(4)
 
 -- Exit Screen
 --
