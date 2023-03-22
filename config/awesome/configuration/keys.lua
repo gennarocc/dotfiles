@@ -4,7 +4,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local helpers = require("helpers")
 local beautiful = require("beautiful")
 local bling = require("module.bling")
-local screenshot = require("module.screenshot")
 
 awful.keyboard.append_global_keybindings({
   -- Change window focus
@@ -107,12 +106,21 @@ awful.keyboard.append_global_keybindings({
     group = "awesome",
   }),
 
-  awful.key({ modkey, "Shift"}, "p", scrot_selection, {
+  awful.key({ modkey }, "p", function()
+      awful.spawn("xfce4-screenshooter -rc")
+  end, {
     description = "take a screenshot of desktop",
     group = "awesome",
   }),
 
- 
+  awful.key({ modkey, "Shift" }, "p", function()
+      awful.spawn("xfce4-screenshooter -rc --save ~/Pictures/screenshots")
+  end, {
+    description = "take a screenshot of desktop and save",
+    group = "awesome",
+  }),
+
+
   awful.key({ modkey }, "F1", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 
   awful.key({ modkey }, "x", function()
