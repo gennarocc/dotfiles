@@ -20,6 +20,8 @@ autostart_apps = {
   "redshift",
   -- Bluetooth Tray Icon
   "blueman-applet",
+  -- Clipbard manager
+  "xfce4-clipman",
   -- Compositor
   "picom -b --experimental-backends --config ~/.config/picom/picom.conf",
   -- MPD

@@ -114,7 +114,7 @@ awful.keyboard.append_global_keybindings({
   }),
 
   awful.key({ modkey, "Shift" }, "p", function()
-      awful.spawn("xfce4-screenshooter -rc --save ~/Pictures/screenshots")
+      awful.spawn("xfce4-screenshooter -rc --save Pictures/screenshots")
   end, {
     description = "take a screenshot of desktop and save",
     group = "awesome",

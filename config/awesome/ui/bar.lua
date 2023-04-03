@@ -240,7 +240,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         helpers.horizontal_pad(20),
         awful.widget.only_on_screen(fs.create("/data", beautiful.xcolor9), screen[1]),
         helpers.horizontal_pad(20),
-        awful.widget.only_on_screen(fs.create("~/Public", beautiful.xcolor9), screen[1]),
+        awful.widget.only_on_screen(fs.create("/srv/nfs", beautiful.xcolor9), screen[1]),
         helpers.horizontal_pad(20),
         updates,
         cpu,
