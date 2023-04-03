@@ -36,23 +36,17 @@ setopt COMPLETE_IN_WORD
 # FZF
 FD_OPTIONS="--hidden --follow --exclude .git"
 export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
-export FZF_DEFAULT_OPTS="--prompt ' ' --pointer '►' --marker=⦁ --height 60% --layout=reverse --color 'fg:#bdae93,fg+:#f9f5d7,hl:#fabd2f,hl+:#fabd2f,info:#8ec07c,pointer:#fb4934,marker:#fe8019,bg+:-1'"
+export FZF_DEFAULT_OPTS="--pointer '►' --marker=⦁ --height 60% --layout=reverse --color 'fg:#bdae93,fg+:#f9f5d7,hl:#fabd2f,hl+:#fabd2f,info:#8ec07c,pointer:#fb4934,marker:#fe8019,bg+:-1'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 bindkey '^f' fzf-cd-widget
-export FZF_DEFAULT_OPTS='--preview-window border-sharp -i --height=50%'
-export FZF_TMUX=1
-export FZF_CTRL_R_OPTS="
-  --preview 'echo {}' --preview-window up:3:hidden:wrap
-  --bind 'ctrl-/:toggle-preview'
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-  --color header:italic
-  --header 'Press CTRL-Y to copy command into clipboard'"
+# export FZF_DEFAULT_OPTS='--preview-window border-sharp -i --height=50%'
+# export FZF_TMUX=1
 
 # NNN
-export NNN_PLUG='p:preview-tui;i:imgview;j:autojump;v:rsynccp'
+export NNN_PLUG='d:preview-tui;i:imgview;j:autojump;p:rsynccp'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_FCOLORS='0000d6000000000000000000'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-[[ ! -f ~/.dotfiles/config/zsh/.p10k.zsh ]] || source ~/.dotfiles/config/zsh/.p10k.zsh
+[[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh

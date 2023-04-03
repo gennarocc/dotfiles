@@ -119,9 +119,6 @@ zstyle ':completion:alias-expension:*' completer _expand_alias
 # Host completions for remote connections
 zstyle -e ':completion:*:(pssh|ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
-# Complete zoxide with dirs only
-compdef _dirs z
-
 # ==== Colors ====
 local meta='%f'  # default foreground
 local orange='%F{#fe8019}'
