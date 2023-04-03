@@ -28,6 +28,8 @@ function fc () {
   cd $projects/$project
 }
 
+# Git Function
+
 function fb(){
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if [[ "$#" -eq 0 ]]; then
@@ -58,6 +60,27 @@ function glog () {
                 xargs -I % sh -c 'git show --color=always % | less -R'"
 }
 
+# DOCKER FUNCTIONS
+
+function fdrc () {
+  local containers=$(docker ps | tail -n +2 | awk '{print $1" "$NF}' | fzf -m | cut -d " " -f 1 | tr "\n" " ")
+
+  [[ -z $containers ]] && return
+
+  docker rm $(echo $containers) -f
+}
+
+function fdri () {
+  local images=$(docker images | tail -n +2 | awk '{print $1" "$3}' | fzf -m |  cut -d " " -f 2 | tr "\n" " ")
+
+  [[ -z $images ]] && return
+
+  docker rmi $(echo $images) -f
+}
+
+
+alias fdrc="fdrc"
+alias fdri="fdri"
 alias fw="fw"
 alias fc="fc"
 alias gc="gb"
