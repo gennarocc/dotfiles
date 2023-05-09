@@ -15,7 +15,7 @@ terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " start " .. editor
 browser = "firefox"
-filemanager = terminal .. "-e ranger"
+filemanager = terminal .. "-e n"
 music = terminal .. " start --class music ncmpcpp"
 
 -- Default modkey.
@@ -24,38 +24,54 @@ altkey = "Mod1"
 shift = "Shift"
 ctrl = "Control"
 
+-- Set Wallpaper
 screen.connect_signal("request::wallpaper", function(s)
-  if s == screen[1] then
-    awful.wallpaper({
-      screen = s,
-      widget = {
-        horizontal_fit_policy = "fit",
-        vertical_fit_policy = "fit",
+  awful.wallpaper {
+    screen = s,
+    widget = {
+      {
         image = beautiful.wallpaper,
-        widget = wibox.widget.imagebox,
+        resize = false,
+        widget = wibox.widget.imagebox
       },
-    })
-  else
-    awful.wallpaper({
-      screen = s,
-      widget = {
-        horizontal_fit_policy = "fit",
-        vertical_fit_policy = "fit",
-        image = beautiful.wallpaper_vert,
-        widget = wibox.widget.imagebox,
-      },
-    })
-  end
+      tiled = true,
+      widget = wibox.container.tile
+    }
+  }
 end)
 
-bling.widget.tag_preview.enable({
-  show_client_content = true,
-  x = dpi(10),
-  y = dpi(10) + beautiful.wibar_height,
-  scale = 0.25,
-  honor_padding = true,
-  honor_workarea = false,
-})
+-- screen.connect_signal("request::wallpaper", function(s)
+--   if s == screen[1] then
+--     awful.wallpaper({
+--       screen = s,
+--       widget = {
+--         horizontal_fit_policy = "fit",
+--         vertical_fit_policy = "fit",
+--         image = beautiful.wallpaper,
+--         widget = wibox.widget.imagebox,
+--       },
+--     })
+--   else
+--     awful.wallpaper({
+--       screen = s,
+--       widget = {
+--         horizontal_fit_policy = "fit",
+--         vertical_fit_policy = "fit",
+--         image = beautiful.wallpaper_vert,
+--         widget = wibox.widget.imagebox,
+--       },
+--     })
+--   end
+-- end)
+
+-- bling.widget.tag_preview.enable({
+--   show_client_content = true,
+--   x = dpi(10),
+--   y = dpi(10) + beautiful.wibar_height,
+--   scale = 0.25,
+--   honor_padding = true,
+--   honor_workarea = false,
+-- })
 
 bling.widget.window_switcher.enable({
   type = "none", -- set to anything other than "thumbnail" to disable client previews

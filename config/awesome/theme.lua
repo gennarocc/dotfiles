@@ -16,11 +16,13 @@ local helpers = require("helpers")
 --
 local theme = dofile(themes_path .. "default/theme.lua")
 
-theme.wallpaper = gfs.get_configuration_dir() .. "images/landscape.jpg"
-theme.wallpaper_vert = gfs.get_configuration_dir() .. "images/landscape-vert.png"
+theme.wallpaper = gfs.get_configuration_dir() .. "images/toronto.xpm"
+-- theme.wallpaper = gfs.get_configuration_dir() .. "images/landscape.jpg"
+-- theme.wallpaper_vert = gfs.get_configuration_dir() .. "images/landscape-vert.png"
+
 
 -- Icon Path
-theme.icon_theme = "Numix"
+theme.icon_theme = "Chicago95"
 theme.icon_path = gfs.get_configuration_dir() .. "icons/"
 theme.notification_icon = gears.color.recolor_image(theme.icon_path .. "notification.png", theme.xcolor8)
 
@@ -48,11 +50,11 @@ theme.accent = theme.xcolor14
 
 -- Fonts
 --
-theme.font_name = "TerminessTTF Nerd Font Bold "
-theme.font = theme.font_name .. "12"
+theme.font_name = "BigBlueTermPlus Nerd Font "
+theme.font = theme.font_name .. "10"
 theme.icon_font_name = theme.font_name
-theme.icon_font = theme.icon_font_name .. "16"
-theme.font_taglist = "Terminus 8"
+theme.icon_font = theme.icon_font_name .. "14"
+theme.font_taglist = "BigBlueTermPlus Nerd Font"
 
 -- Background Colors
 --
@@ -89,7 +91,7 @@ local taglist_square_size = dpi(0)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 theme.taglist_font = theme.font_taglist
-theme.taglist_bg = theme.xbackground
+theme.taglist_bg = theme.xforeground
 theme.taglist_bg_focus = theme.xbackground
 theme.taglist_fg_focus = theme.xcolor14
 theme.taglist_bg_urgent = theme.xbackground

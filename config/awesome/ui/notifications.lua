@@ -32,7 +32,7 @@ naughty.config.presets.low.timeout = 3
 naughty.config.presets.critical.timeout = 0
 
 naughty.config.presets.normal = {
-  font = beautiful.font_name .. "11",
+  font = beautiful.font_name .. "8",
   fg = beautiful.fg_normal,
   bg = beautiful.bg_normal,
 }
@@ -44,7 +44,7 @@ naughty.config.presets.low = {
 }
 
 naughty.config.presets.critical = {
-  font = beautiful.font_name .. "10",
+  font = beautiful.font_name .. "8",
   fg = beautiful.xcolor1,
   bg = beautiful.bg_normal,
   timeout = 0,

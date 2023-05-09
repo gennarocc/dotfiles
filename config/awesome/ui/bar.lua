@@ -40,7 +40,7 @@ end)
 -- Time Widget ----------------------------------------------------------------
 
 local time_text = wibox.widget({
-  font = beautiful.font_name .. "12",
+  font = beautiful.font_name .. "10",
   format = "%b %d, %T",
   align = "center",
   valign = "center",
@@ -61,7 +61,7 @@ local time_widget = wibox.widget({
   },
   left = dpi(10),
   right = dpi(10),
-  bottom = dpi(1),
+  bottom = dpi(0),
   widget = wibox.container.margin,
 })
 
@@ -211,7 +211,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
           awesome.emit_signal("bling::task_preview::visibility", s, true, c)
         end)
         self:connect_signal("mouse::leave", function()
-          awesome.emit_signal("bling::task_preview::visibility", s, false, c)
+          awesome.emit_signal("bling::task_prev/iew::visibility", s, false, c)
         end)
       end,
     },
@@ -240,7 +240,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
         helpers.horizontal_pad(20),
         awful.widget.only_on_screen(fs.create("/data", beautiful.xcolor9), screen[1]),
         helpers.horizontal_pad(20),
-        awful.widget.only_on_screen(fs.create("/srv/nfs", beautiful.xcolor9), screen[1]),
+        awful.widget.only_on_screen(fs.create("~/Public", beautiful.xcolor9), screen[1]),
         helpers.horizontal_pad(20),
         updates,
         cpu,

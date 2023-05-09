@@ -14,7 +14,7 @@ local bling = require("module.bling")
 require("module.savefloats")
 
 -- Better mouse resizing on tiled
--- Nodt mine
+-- Not mine
 -- https://github.com/larkery/awesome/blob/master/better-resize.lua
 require("module.better-resize")
 
@@ -33,22 +33,17 @@ client.connect_signal("request::manage", function(c)
 
   -- Custom icons --------------------------------------------------------------
   if c.class == "Alacritty" then
-    -- local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/term.png")
-    -- c.icon = new_icon._native
-    -- c.icon = new_icon._native
+     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/utilities-terminal.png")
+     c.icon = new_icon._native
   elseif c.class == "Scratchpad" then
     -- local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/term.png")
     -- c.icon = new_icon._native
-    -- c.icon = new_icon._native
   elseif c.class == "slack" or c.instance == "slack" then
-    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/slack.png")
+    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/xchat-gnome.png")
     c.icon = new_icon._native
   elseif c.class == "mumble" or c.instance == "mumble" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/mumble.png")
     c.icon = new_icon._native
-  --  elseif c.class == "firefox" then
-  --    local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/firefox.png")
-  --    c.icon = new_icon._native
   elseif c.class == "dota2" then
     local new_icon = gears.surface(gfs.get_configuration_dir() .. "icons/dota2.png")
     c.icon = new_icon._native

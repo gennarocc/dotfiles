@@ -114,7 +114,7 @@ awful.keyboard.append_global_keybindings({
   }),
 
   awful.key({ modkey, "Shift" }, "p", function()
-      awful.spawn("xfce4-screenshooter -rc --save Pictures/screenshots")
+      awful.spawn("xfce4-screenshooter -rc --save Pictures/screenshots/screenshot-" .. os.date('%Y-%m-%d_%H-%M.png'))
   end, {
     description = "take a screenshot of desktop and save",
     group = "awesome",
@@ -142,10 +142,13 @@ awful.keyboard.append_global_keybindings({
     awesome.spawn("alacritty --title Terminal")
   end, {}),
 
-  awful.key({ modkey }, "p", function()
+  awful.key({ modkey }, "v", function()
     awesome.spawn("alacritty --title music --class music -e ncmpcpp")
   end, {}),
-
+  --
+  -- awful.key({ modkey }, "d", function()
+  --   awful.spawn("xfce4-appfinder")
+  -- end, {}),
   awful.key({ modkey }, "d", function()
     awful.spawn("alacritty --title Launcher --class Launcher -e" .. gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh")
   end, {}),
@@ -193,14 +196,14 @@ awful.keyboard.append_global_keybindings({
   }),
 
   -- Resize Windows
-  awful.key({ modkey }, "Up", function()
+  awful.key({ modkey }, "Down", function()
     awful.tag.incmwfact(0.05)
   end, {
     description = "increase master width factor",
     group = "layout",
   }),
 
-  awful.key({ modkey }, "Down", function()
+  awful.key({ modkey }, "Up", function()
     awful.tag.incmwfact(-0.05)
   end, {
     description = "decrease master width factor",

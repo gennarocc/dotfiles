@@ -24,6 +24,13 @@ local rules = {
     properties = {},
     callback = awful.client.setslave,
   },
+  { rule = { class = "xfce4-appfinder" },
+    properties = {
+      floating = true,
+      placement = awful.placement.centered,
+      screen = screen.primary,
+    },
+  },
   {
     rule = { name = "Launcher" },
     properties = {
@@ -31,8 +38,7 @@ local rules = {
       width = 685,
       height = 300,
       above = true,
-      x = 937,
-      y = 934,
+      placement = awful.placement.centered,
       ontop = true,
       screen = screen.primary,
     },
@@ -54,9 +60,11 @@ local rules = {
         "steamwebhelper",
         "Scratchpad",
         "com.bitwig.BitwigStudio",
-        "battle.net.exe"
+        "battle.net.exe",
+        "steam_proton",
+        "Plexamp"
       },
-      name = { "Launcher", "SteamVR Status" }
+      name = { "Launcher", "SteamVR Status", "Bitwig*" }
     },
     properties = { titlebars_enabled = true },
   },
