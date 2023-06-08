@@ -8,11 +8,19 @@ alias grepl="rg | less -R"
 alias q="exit"
 
 # PARU 
-alias update="paru -Syu --removemake  --sudoloop"
+alias update="sudo btrfs-snp / syschanges 3 600 && paru -Syu --removemake  --sudoloop"
 alias install="paru -Slq | fzf --multi --border=sharp --preview 'paru -Si {1}' | xargs -ro paru -S --removemake --sudoloop"
 alias remove="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rcns"
 alias cclean="sudo paccache -rk3 && sudo pacman -Sc --noconfirm"
 alias pclean="paru -Qdtq | xargs -ro paru -Rs"
+
+# UTILS
+# Creates archive in current dir
+alias backup="sudo tar -cvzf backup-$(date +%s).tar.gz -C /srv/network/Music . -C /srv/network/Workspace . -C /srv/network/Pictures ."
+
+# GIT
+alias fu="git commit -am 'fixup'"
+alias fug="git commit -am 'fixup' && git rebase -i HEAD~2 && git push -f"
 
 # LS
 TREE_IGNORE="cache|log|logs|node_modules|vendor"

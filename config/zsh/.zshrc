@@ -23,6 +23,7 @@ source_file history.zsh
 source_file alias.zsh
 source_file completion.zsh
 source_file key-bindings.zsh
+source_file git-functions.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
@@ -47,6 +48,6 @@ export NNN_PLUG='d:preview-tui;i:imgview;j:autojump;p:rsynccp'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_FCOLORS='0000d6000000000000000000'
 
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
