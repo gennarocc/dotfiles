@@ -15,4 +15,5 @@
     ~/.config/redshift: config/redshift
     ~/.config/alacritty: config/alacritty/
     ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
+    ~/.config/tmux/plugins/tpm/: config/tmux/plugins/tpm/
     ~/.config/nvim/init.lua: config/nvim/init.lua
