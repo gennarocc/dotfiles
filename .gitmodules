@@ -2,6 +2,3 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "config/tmux/plugins/tpm"]
-	path = config/tmux/plugins/tpm
-	url = git@github.com:tmux-plugins/tpm.git
