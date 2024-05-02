@@ -51,6 +51,3 @@ alias fdrc="fdrc"
 alias fdri="fdri"
 alias fw="fw"
 alias fc="fc"
-alias gc="gb"
-alias glog="glog"
-
