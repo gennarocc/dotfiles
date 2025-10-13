@@ -5,8 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-eval "$(jump shell)"
-
 source $ZDOTDIR/utils.zsh
 
 plugins=(
@@ -23,7 +21,6 @@ source_file history.zsh
 source_file alias.zsh
 source_file completion.zsh
 source_file key-bindings.zsh
-source_file git-functions.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
@@ -33,6 +30,8 @@ setopt AUTO_CD
 setopt LIST_PACKED
 setopt AUTO_LIST
 setopt COMPLETE_IN_WORD
+
+export KUBECONFIG=~/.kube/config
 
 # FD
 FD_OPTIONS="--hidden --follow --exclude .git"
@@ -54,3 +53,9 @@ export NNN_FCOLORS='0000d6000000000000000000'
 # PROMPT
 source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	echo "Welcome to Dungeonware."
+else
+	pipes -f 20		
+fi

@@ -105,6 +105,11 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+-- Set tab to be 2 spaces
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.bo.expandtab = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 

@@ -1,5 +1,5 @@
 # Quick Shortcuts
-alias n="nnn -eiA"
+alias n="nnn -eA"
 alias k="kubectl"
 alias zsrc="source ~/.zshrc"
 alias q="exit"
