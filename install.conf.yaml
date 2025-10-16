@@ -12,7 +12,6 @@
     ~/.gitconfig: config/gitconfig
     ~/.zshrc: config/zsh/.zshrc
     ~/.zshenv: config/zsh/.zshenv
-    ~/.config/redshift: config/redshift
     ~/.config/alacritty: config/alacritty/
     ~/.config/tmux/tmux.conf: config/tmux/tmux.conf
     ~/.config/tmux/plugins/tpm/: config/tmux/plugins/tpm/
