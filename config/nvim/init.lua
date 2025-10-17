@@ -182,11 +182,12 @@ require('lualine').setup {
 require('Comment').setup()
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
--- See `:help indent_blankline.txt`
-require('indent_blankline').setup {
-  char = '┊',
-  show_trailing_blankline_indent = true,
-}
+-- See `:help ibl.config
+require('ibl').setup ({
+  debounce = 100,
+  indent = { char = "|" },
+  whitespace = { highlight = { "Whitespace", "NonText" } },
+})
 
 -- Gitsigns
 -- See `:help gitsigns.txt`
@@ -382,17 +383,10 @@ require('mason').setup()
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
-  end,
+  automatic_enable = {
+    "lua_ls",
+    "vimls"
+  }
 }
 
 -- Turn on lsp status information

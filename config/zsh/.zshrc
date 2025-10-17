@@ -54,8 +54,8 @@ export NNN_FCOLORS='0000d6000000000000000000'
 source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	echo "Welcome to Dungeonware."
-else
+if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ "$HOST" = "gennaro-pi" ]; then
 	pipes -f 20		
+elif [ "$HOST" = "gennaro-pi" ]; then
+	echo "Welcome to Dungeonware."
 fi
