@@ -3,7 +3,7 @@ My shell config. Managed by [dotbot](https://github.com/anishathalye/dotbot)
 
 ## To Install
 ```
-git clone git@github.com:gennarocc/dotfiles.git .dotfiles
+git clone --recurse-submodules git@github.com:gennarocc/dotfiles.git .dotfiles
 cd ./.dotfiles
 ./install
 ```
