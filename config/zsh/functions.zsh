@@ -1,3 +1,4 @@
+# Shows projects in workspace.
 function fw () {
   local projects=$HOME/Workspace
 
@@ -13,26 +14,9 @@ function fw () {
   cd $projects/$project
 }
 
-# DOCKER FUNCTIONS
-
-function fdrc () {
-  local containers=$(docker ps | tail -n +2 | awk '{print $1" "$NF}' | fzf -m | cut -d " " -f 1 | tr "\n" " ")
-
-  [[ -z $containers ]] && return
-
-  docker rm $(echo $containers) -f
-}
-
-function fdri () {
-  local images=$(docker images | tail -n +2 | awk '{print $1" "$3}' | fzf -m |  cut -d " " -f 2 | tr "\n" " ")
-
-  [[ -z $images ]] && return
-
-  docker rmi $(echo $images) -f
-}
-
 # Git Function
 
+# Fuzzy find branch in current repo.
 function fb(){
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if [[ "$#" -eq 0 ]]; then
@@ -54,6 +38,7 @@ function fb(){
     fi
 }
 
+# Git log viewer with fuzzy find.
 function glog () {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |

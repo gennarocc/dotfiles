@@ -2,7 +2,6 @@
 alias n="nnn -eA"
 alias k="kubectl"
 alias zsrc="source ~/.zshrc"
-alias q="exit"
 alias grep="rg"
 alias grepl="rg | less -R"
 alias q="exit"
@@ -13,10 +12,6 @@ alias install="paru -Slq | fzf --multi --border=sharp --preview 'paru -Si {1}' |
 alias remove="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rcns"
 alias cclean="sudo paccache -rk3 && sudo pacman -Sc --noconfirm"
 alias pclean="paru -Qdtq | xargs -ro paru -Rs"
-
-# UTILS
-# Creates archive in current dir
-alias backup="sudo tar -cvzf backup-$(date +%s).tar.gz -C /srv/network/Music . -C /srv/network/Workspace . -C /srv/network/Pictures ."
 
 # GIT
 alias fu="git commit -am 'fixup'"

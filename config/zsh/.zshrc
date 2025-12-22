@@ -9,6 +9,7 @@ source $ZDOTDIR/utils.zsh
 plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting 
+  kubectl-autocomplete
 )
 
 for plugin in ${plugins[@]}; do
