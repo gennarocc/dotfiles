@@ -1,6 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.dotfiles/config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# .zshrc
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -43,6 +42,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 bindkey '^f' fzf-cd-widget
 export FZF_TMUX=1
 
+# NVM
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # NNN
 # Install NNN plugins
 # [[ ! -d $XDG_CONFIG_HOME/nnn/plugins ]] || [[ -z $(ls -A $XDG_CONFIG_HOME/nnn/plugins) ]] || sh -c "$(curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs)" 
@@ -54,12 +58,13 @@ export NNN_FCOLORS='0000d6000000000000000000'
 source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
 
+# Display screensaver on reboot
 if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ "$HOST" = "gennaro-pi" ]; then
-	screensaver
-elif [ "$HOST" = "gennaro-pi" ]; then
-       echo "Welcome to Dungeonware."
+  # Use zsh's add-zsh-hook to defer this until after prompt is displayed
+  autoload -Uz add-zsh-hook
+  _run_screensaver() {
+    screensaver
+    add-zsh-hook -d precmd _run_screensaver
+  }
+  add-zsh-hook precmd _run_screensaver
 fi
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
