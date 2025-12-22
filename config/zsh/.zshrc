@@ -55,7 +55,11 @@ source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
 
 if [ -z "$SSH_CLIENT" ] && [ -z "$SSH_TTY" ] && [ "$HOST" = "gennaro-pi" ]; then
-	pipes -f 20		
+	screensaver
 elif [ "$HOST" = "gennaro-pi" ]; then
-	echo "Welcome to Dungeonware."
+       echo "Welcome to Dungeonware."
 fi
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
