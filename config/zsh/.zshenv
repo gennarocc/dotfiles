@@ -14,4 +14,3 @@ fi
 export TERM="xterm-256color"
 export EDITOR=nvim
 export GOPATH=$XDG_CONFIG_HOME/go
-. "$HOME/.cargo/env"

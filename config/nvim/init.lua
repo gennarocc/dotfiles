@@ -29,7 +29,6 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme haiku]]  -- or 'slate', 'desert', 'torte', etc.
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -80,16 +79,3 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- Setup LSP servers
--- Install these via system package manager:
--- - yaml-language-server
--- - bash-language-server
-require('lspconfig').yamlls.setup({
-  on_attach = on_attach,
-  capabilities = vim.lsp.protocol.make_client_capabilities(),
-})
-
-require('lspconfig').bashls.setup({
-  on_attach = on_attach,
-  capabilities = vim.lsp.protocol.make_client_capabilities(),
-})

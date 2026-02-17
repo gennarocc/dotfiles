@@ -9,8 +9,12 @@ source $ZDOTDIR/utils.zsh
 plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting 
-  kubectl-autocomplete
 )
+
+# kubectl autocomplete
+if command -v kubectl &>/dev/null; then
+  source <(kubectl completion zsh)
+fi
 
 for plugin in ${plugins[@]}; do
   add_plugin $plugin
@@ -21,8 +25,7 @@ source_file history.zsh
 source_file alias.zsh
 source_file completion.zsh
 source_file key-bindings.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source <(fzf --zsh)
 
 setopt GLOB_COMPLETE
 setopt MENU_COMPLETE
