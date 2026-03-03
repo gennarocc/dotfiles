@@ -19,10 +19,7 @@ alias fug="git commit -am 'fixup' && git rebase -i HEAD~2 && git push -f"
 
 # LS
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
-alias ls='eza --group-directories-first'
-alias la='eza -a'
-alias ll='eza --git -la'
-alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
-alias ltt='ls --tree -D -L 3 -I ${TREE_IGNORE}'
-alias lttt='ls --tree -D -L 4 -I ${TREE_IGNORE}'
-alias ltttt='ls --tree -D -L 5 -I ${TREE_IGNORE}'
+alias ls='eza --icons --group-directories-first'
+alias la='eza -la --icons --git --group-directories-first'
+alias ll='eza -l --icons --git --group-directories-first'
+alias lt='eza --tree --level=2 --icons --group-directories-first'
