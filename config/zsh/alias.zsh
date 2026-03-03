@@ -18,8 +18,8 @@ alias fu="git commit -am 'fixup'"
 alias fug="git commit -am 'fixup' && git rebase -i HEAD~2 && git push -f"
 
 # LS
-TREE_IGNORE="cache|log|logs|node_modules|vendor"
+EZA_ICON_SPACING=2
 alias ls='eza --icons --group-directories-first'
 alias la='eza -la --icons --git --group-directories-first'
 alias ll='eza -l --icons --git --group-directories-first'
-alias lt='eza --tree --level=2 --icons --group-directories-first'
+alias lt='eza --tree --level=2 --icons --group-directories-first --git-ignore --ignore-glob "cache"  --ignore-glob "log" --ignore-glob "logs"'

@@ -1,47 +1,34 @@
+-- [[ Bootstrap lazy.nvim ]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 -- [[ Options ]]
--- Set tab to be 2 spaces
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
-
--- Set highlight on search
 vim.o.hlsearch = false
-
--- Make line numbers default
 vim.wo.number = true
-
--- Enable mouse mode
 vim.o.mouse = 'a'
-
--- Enable break indent
 vim.o.breakindent = true
-
--- Save undo history
 vim.o.undofile = true
-
--- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
--- Decrease update time
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
-
--- Set colorscheme
-vim.o.termguicolors = true
-
--- Set completeopt to have a better completion experience
+vim.o.termguicolors = false -- use terminal ANSI palette
 vim.o.completeopt = 'menuone,noselect'
 
 -- [[ Keymaps ]]
--- Set <space> as the leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
--- Keymaps for better default experience
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
@@ -55,8 +42,29 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+vim.filetype.add({
+  pattern = {
+    ["Dockerfile.*"] = "dockerfile",
+  },
+})
+
 -- [[ File Explorer ]]
 vim.keymap.set('n', '<leader>nn', '<cmd>Explore<CR>', { desc = 'Open file explorer' })
+
+-- [[ Plugins ]]
+require("lazy").setup({
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter").setup({
+        ensure_installed = {
+          "bash", "css", "dockerfile", "html", "javascript", "json", "lua", "python", "typescript", "yaml"
+        },
+      })
+    end,
+  },
+})
 
 -- [[ LSP ]]
 local on_attach = function(_, bufnr)
@@ -66,16 +74,12 @@ local on_attach = function(_, bufnr)
     end
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
-
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
-  -- Format command
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
-
