@@ -3,3 +3,5 @@
 	name = gennarocc
 [credential]
 	helper = cache
+[push]
+	autoSetupRemote = true
